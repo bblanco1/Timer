@@ -21,6 +21,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+- (IBAction)startButtonTapped:(id)sender {
+}
+- (IBAction)pauseButtonTapped:(id)sender {
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

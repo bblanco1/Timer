@@ -20,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+}
+- (IBAction)startButtonTapped:(id)sender {
+}
+- (IBAction)lapButtonTapped:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning {
