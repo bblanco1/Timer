@@ -17,11 +17,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     self.timerPicker.datePickerMode = UIDatePickerModeCountDownTimer;
+    [startButton setTitle:@"Start" forState:UIControlStateSelected];
+    [startButton setTitle:@"Stop" forState:UIControlStateNormal];
     
  
 }
 - (IBAction)startButtonTapped:(id)sender {
+    
+    NSDateFormatter *outputFormat = [[NSDateFormatter alloc] init];
+    [outputFormat setDateFormat:@"HH:mm:ss"];
+    
+    NSLog(@"%@",[outputFormat stringFromDate:self.timerPicker.date]);
+    self.countdownLabel.text = [outputFormat stringFromDate:self.timerPicker.date];
+    
+    
+
+    
 }
 - (IBAction)pauseButtonTapped:(id)sender {
 }
