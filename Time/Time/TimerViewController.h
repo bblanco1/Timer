@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimerViewController : UIViewController
+@interface TimerViewController : UIViewController {
+    
+    IBOutlet UIDatePicker *timerPicker;
+    IBOutlet UIButton *startButton;
+    IBOutlet UIButton *pauseButton;
+    IBOutlet UILabel *countdownLabel;
+    
+}
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
