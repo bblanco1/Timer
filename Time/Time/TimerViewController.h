@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 
 @end
