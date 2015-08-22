@@ -10,6 +10,11 @@
 
 @interface TimerViewController ()
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
+
 @end
 
 @implementation TimerViewController
@@ -17,24 +22,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.timerPicker.datePickerMode = UIDatePickerModeCountDownTimer;
-    [startButton setTitle:@"Start" forState:UIControlStateSelected];
-    [startButton setTitle:@"Stop" forState:UIControlStateNormal];
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [self.pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
     
  
 }
+
+
+
 - (IBAction)startButtonTapped:(id)sender {
     
-    NSDateFormatter *outputFormat = [[NSDateFormatter alloc] init];
-    [outputFormat setDateFormat:@"HH:mm:ss"];
-    
-    NSLog(@"%@",[outputFormat stringFromDate:self.timerPicker.date]);
-    self.countdownLabel.text = [outputFormat stringFromDate:self.timerPicker.date];
-    
+
+    NSTimer *countDown = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeLeft) userInfo:nil repeats:YES];
     
 }
+
+- (void) startCounting {
+    
+}
+
+- (void) timeLeft {
+    
+    NSInteger timeLeft = ((NSInteger) [self.timerPicker.date timeIntervalSinceNow]);
+    NSInteger seconds = timeLeft % 60;
+    NSInteger minutes = (timeLeft / 60) % 60;
+    NSInteger hours = (timeLeft / 3600) % 60;
+    
+    self.countdownLabel.text = [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
+}
 - (IBAction)pauseButtonTapped:(id)sender {
+    
+    
 }
 
 
