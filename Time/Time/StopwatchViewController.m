@@ -23,6 +23,14 @@
     
 }
 - (IBAction)startButtonTapped:(id)sender {
+    NSTimer *stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(startButtonTapped:) userInfo:nil repeats:YES];
+    
+    NSInteger *currentNumber = [self.stopwatchLabel.text integerValue];
+    NSInteger *nextNumber = currentNumber + 1;
+    
+    self.stopwatchLabel.text = [NSString stringWithFormat:@"%lu", nextNumber];
+    
+    [[NSRunLoop currentRunLoop] addTimer:stopwatchTimer forMode: NSDefaultRunLoopMode];
 }
 - (IBAction)lapButtonTapped:(id)sender {
 }
