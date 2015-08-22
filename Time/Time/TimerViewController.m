@@ -8,7 +8,10 @@
 
 #import "TimerViewController.h"
 
-@interface TimerViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimerViewController ()
+@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 @end
 

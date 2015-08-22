@@ -8,7 +8,11 @@
 
 #import "StopwatchViewController.h"
 
-@interface StopwatchViewController ()
+@interface StopwatchViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *lapButton;
+@property (weak, nonatomic) IBOutlet UITableView *lapTableView;
 
 @end
 
