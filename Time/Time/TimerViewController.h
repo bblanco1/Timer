@@ -10,4 +10,8 @@
 
 @interface TimerViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+
 @end

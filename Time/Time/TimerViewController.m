@@ -9,9 +9,6 @@
 #import "TimerViewController.h"
 
 @interface TimerViewController ()
-@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 @end
 
@@ -19,12 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.timerPicker.datePickerMode = UIDatePickerModeCountDownTimer;
+    
+ 
 }
 - (IBAction)startButtonTapped:(id)sender {
 }
 - (IBAction)pauseButtonTapped:(id)sender {
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
