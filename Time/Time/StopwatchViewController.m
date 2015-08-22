@@ -15,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *lapTableView;
 @property (nonatomic) BOOL timerRunning;
 @property (nonatomic) NSTimer *stopwatchTimer;
+@property (nonatomic) NSDate *startTime;
+@property (nonatomic) NSDate *lapTime;
+@property (nonatomic) NSMutableArray *lapTimes;
+
 
 @end
 
@@ -24,58 +28,78 @@
     [super viewDidLoad];
     
     [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-    self.timerRunning = NO;
+    !self.timerRunning;
+    
+    self.lapTimes = [[NSMutableArray alloc] init];
+}
+
+-(void) createTimer {
+   
+    NSTimer *stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:stopwatchTimer forMode: NSDefaultRunLoopMode];
+    self.stopwatchTimer = stopwatchTimer;
     
 }
+
+-(void) updateTimer {
+    NSDate *currentTime = [NSDate date];
+    NSTimeInterval timeInterval = [currentTime timeIntervalSinceDate:self.startTime];
+    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"mm:ss:SS"];
+//    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]]; *** we may not need this ***
+    NSString *timeString = [dateFormatter stringFromDate: timerDate];
+    
+    self.stopwatchLabel.text = timeString;
+
+}
+
 - (IBAction)startButtonTapped:(id)sender {
+    if (!self.timerRunning) {
     
-    if (self.timerRunning) {
-        // stop the timer
-        //update button to say start
-    } else {
+        [self createTimer];
+        self.startTime = [NSDate date];
+        [self updateTimer];
         
-        //start timer
-        //update button to say start
+        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        self.timerRunning;
     }
-    
-    [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
-    self.timerRunning = !self.timerRunning;
-    
-    NSTimer *stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(startButtonTapped:) userInfo:nil repeats:YES];
-    
-    NSInteger currentNumber = [self.stopwatchLabel.text integerValue];
-    NSInteger nextNumber = currentNumber + 1;
-    
-    self.stopwatchLabel.text = [NSString stringWithFormat:@"%lu", nextNumber];
-    
-    [[NSRunLoop currentRunLoop] addTimer:stopwatchTimer forMode: NSDefaultRunLoopMode];
-    
-    NSLog(@"%@", self.startButton.currentTitle);
-    
+}
+
+- (IBAction)stopButtonTapped:(id)sender {
     if (self.timerRunning) {
         
+        [self.stopwatchTimer isValid];
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-        [stopwatchTimer invalidate];
+        !self.timerRunning;
+        [self.stopwatchTimer invalidate];
+        
         
     }
 }
 
 - (IBAction)lapButtonTapped:(id)sender {
+    self.lapTime = [NSDate date];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
+    
+    return 1;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.lapTimes.count;
 }
-*/
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stopwatchCell" forIndexPath:indexPath];
+    
+    return cell;
+}
+
+
 
 @end
