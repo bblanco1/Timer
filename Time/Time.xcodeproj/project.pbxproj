@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223B04931B88C5E6004C0371 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04921B88C5E6004C0371 /* TabBarController.m */; };
+		223B04991B88C624004C0371 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04981B88C624004C0371 /* StopwatchViewController.m */; };
+		223B049C1B88C637004C0371 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049B1B88C637004C0371 /* TimerViewController.m */; };
+		223B049F1B88C66D004C0371 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049E1B88C66D004C0371 /* SettingsTableViewController.m */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
 		8D0537611B86687C00588318 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537601B86687C00588318 /* AppDelegate.m */; };
-		8D0537641B86687C00588318 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537631B86687C00588318 /* ViewController.m */; };
 		8D0537671B86687C00588318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0537651B86687C00588318 /* Main.storyboard */; };
 		8D0537691B86687C00588318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D0537681B86687C00588318 /* Images.xcassets */; };
 		8D05376C1B86687C00588318 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D05376A1B86687C00588318 /* LaunchScreen.xib */; };
@@ -27,13 +30,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223B04911B88C5E6004C0371 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		223B04921B88C5E6004C0371 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		223B04971B88C624004C0371 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
+		223B04981B88C624004C0371 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
+		223B049A1B88C637004C0371 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		223B049B1B88C637004C0371 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
+		223B049D1B88C66D004C0371 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		223B049E1B88C66D004C0371 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		8D0537581B86687B00588318 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D05375C1B86687B00588318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D05375D1B86687C00588318 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D05375F1B86687C00588318 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D0537601B86687C00588318 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D0537621B86687C00588318 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D0537631B86687C00588318 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D0537661B86687C00588318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D0537681B86687C00588318 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8D05376B1B86687C00588318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -83,8 +92,14 @@
 			children = (
 				8D05375F1B86687C00588318 /* AppDelegate.h */,
 				8D0537601B86687C00588318 /* AppDelegate.m */,
-				8D0537621B86687C00588318 /* ViewController.h */,
-				8D0537631B86687C00588318 /* ViewController.m */,
+				223B04911B88C5E6004C0371 /* TabBarController.h */,
+				223B04921B88C5E6004C0371 /* TabBarController.m */,
+				223B04971B88C624004C0371 /* StopwatchViewController.h */,
+				223B04981B88C624004C0371 /* StopwatchViewController.m */,
+				223B049A1B88C637004C0371 /* TimerViewController.h */,
+				223B049B1B88C637004C0371 /* TimerViewController.m */,
+				223B049D1B88C66D004C0371 /* SettingsTableViewController.h */,
+				223B049E1B88C66D004C0371 /* SettingsTableViewController.m */,
 				8D0537651B86687C00588318 /* Main.storyboard */,
 				8D0537681B86687C00588318 /* Images.xcassets */,
 				8D05376A1B86687C00588318 /* LaunchScreen.xib */,
@@ -219,7 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D0537641B86687C00588318 /* ViewController.m in Sources */,
+				223B049F1B88C66D004C0371 /* SettingsTableViewController.m in Sources */,
+				223B04991B88C624004C0371 /* StopwatchViewController.m in Sources */,
+				223B04931B88C5E6004C0371 /* TabBarController.m in Sources */,
+				223B049C1B88C637004C0371 /* TimerViewController.m in Sources */,
 				8D0537611B86687C00588318 /* AppDelegate.m in Sources */,
 				8D05375E1B86687C00588318 /* main.m in Sources */,
 			);
@@ -418,6 +436,7 @@
 				8D05377D1B86687C00588318 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D05377E1B86687C00588318 /* Build configuration list for PBXNativeTarget "TimeTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +445,7 @@
 				8D0537801B86687C00588318 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
