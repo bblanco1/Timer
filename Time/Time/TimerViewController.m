@@ -33,8 +33,6 @@
     self.countdownLabel.text = [outputFormat stringFromDate:self.timerPicker.date];
     
     
-
-    
 }
 - (IBAction)pauseButtonTapped:(id)sender {
 }
