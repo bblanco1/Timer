@@ -23,6 +23,7 @@
 @property (nonatomic) NSMutableArray *lapTimes;
 @property (weak, nonatomic) IBOutlet UILabel *lapTimeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *lapTableview;
+@property (nonatomic) NSDate *lapStartTime;
 
 
 @end
@@ -47,6 +48,7 @@
         //set start time
         
         self.startTime = [NSDate date];
+        self.lapStartTime = self.startTime;
         
         //create timer and add to run loop
         
@@ -128,8 +130,10 @@
         //reset timer
         
         [self.stopwatchTimer invalidate];
-        
-        self.stopwatchLabel.text = @"0.00";
+        [self.lapTimes removeAllObjects];
+        [self.lapTableView reloadData];
+        self.stopwatchLabel.text = @"00:00:00";
+        self.lapTimeLabel.text = @"00:00";
         
         self.totalTime = 0;
         
@@ -141,14 +145,21 @@
         
         //get total time elapsed in lap
         
-        NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.startTime];
+        NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.lapStartTime];
+        
+        //change lap label to lapCurrentTime
         
         self.lapTimeLabel.text = [NSString stringWithFormat:@"%f", lapCurrentTime];
         
+        //add lap to array
         
-//        [self.lapTimes addObject:lapCurrentTime];
+        [self.lapTimes addObject:self.lapTimeLabel.text];
         
+        [self.lapTableview reloadData];
         
+        //restart next lap
+        
+        self.lapStartTime = [NSDate date];
         
     }
 }
@@ -167,6 +178,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stopwatchCell" forIndexPath:indexPath];
     
+    cell.textLabel.text = self.lapTimeLabel.text;
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count]- indexPath.row -1];
+     
     return cell;
 }
 
