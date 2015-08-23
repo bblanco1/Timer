@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    //[self.startButton setTitle:@"Start" forState:UIControlStateNormal];
     
     self.lapTimes = [[NSMutableArray alloc] init];
 }
@@ -107,18 +107,40 @@
     if ([self.startButton.titleLabel.text isEqualToString:@"Start"]) {
         
         [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
         
     } else {
         
         [self.startButton setTitle:@"Start" forState: UIControlStateNormal];
+        [self.lapButton setTitle:@"Reset" forState:UIControlStateNormal];
     }
+    
 }
 
 - (IBAction)lapButtonTapped:(id)sender {
-    NSDate *lap = [NSDate date];
-    NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.startTime];
-    NSLog(@"0.2%f", lapCurrentTime);
     
+    if ([self.lapButton.titleLabel.text isEqualToString:@"Reset"]) {
+        
+        NSLog(@"Reset bruh");
+        
+        [self.stopwatchTimer invalidate];
+        
+        self.stopwatchLabel.text = @"0.00";
+        
+        self.totalTime = 0;
+        
+    } else {
+    
+    //get current time
+    
+    NSDate *lap = [NSDate date];
+    
+    //get total time elapsed in lap
+    
+    NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.startTime];
+    NSLog(@"%f", lapCurrentTime);
+        
+    }
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
