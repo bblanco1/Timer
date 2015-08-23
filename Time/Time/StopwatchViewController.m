@@ -21,6 +21,8 @@
 
 @property (nonatomic) NSTimeInterval lapTime;
 @property (nonatomic) NSMutableArray *lapTimes;
+@property (weak, nonatomic) IBOutlet UILabel *lapTimeLabel;
+@property (weak, nonatomic) IBOutlet UITableView *lapTableview;
 
 
 @end
@@ -29,9 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //[self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-    
+
+    self.lapTableview.dataSource = self;
+    self.lapTableview.delegate = self;
     self.lapTimes = [[NSMutableArray alloc] init];
 }
 
@@ -119,9 +121,11 @@
 
 - (IBAction)lapButtonTapped:(id)sender {
     
+    //make sure button says "Reset" before resetting
+    
     if ([self.lapButton.titleLabel.text isEqualToString:@"Reset"]) {
         
-        NSLog(@"Reset bruh");
+        //reset timer
         
         [self.stopwatchTimer invalidate];
         
@@ -130,15 +134,21 @@
         self.totalTime = 0;
         
     } else {
-    
-    //get current time
-    
-    NSDate *lap = [NSDate date];
-    
-    //get total time elapsed in lap
-    
-    NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.startTime];
-    NSLog(@"%f", lapCurrentTime);
+        
+        //get current time
+        
+        NSDate *lap = [NSDate date];
+        
+        //get total time elapsed in lap
+        
+        NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.startTime];
+        
+        self.lapTimeLabel.text = [NSString stringWithFormat:@"%f", lapCurrentTime];
+        
+        
+//        [self.lapTimes addObject:lapCurrentTime];
+        
+        
         
     }
 }

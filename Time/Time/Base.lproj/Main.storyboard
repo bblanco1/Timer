@@ -60,6 +60,12 @@
                                             <action selector="lapButtonTapped:" destination="9dq-zV-6bM" eventType="touchUpInside" id="NO9-Na-yWt"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGW-YT-1mk">
+                                        <rect key="frame" x="109" y="60" width="82" height="20"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35473488910000001" green="0.59769837209999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -67,7 +73,9 @@
                                     <constraint firstAttribute="centerX" secondItem="d3B-yF-bTP" secondAttribute="centerX" id="Kbr-HR-5SW"/>
                                     <constraint firstItem="net-zm-nJT" firstAttribute="top" secondItem="d3B-yF-bTP" secondAttribute="bottom" constant="2" id="QVD-H7-7co"/>
                                     <constraint firstItem="net-zm-nJT" firstAttribute="baseline" secondItem="WKb-Ai-zmf" secondAttribute="firstBaseline" id="SYJ-jB-9pZ"/>
+                                    <constraint firstAttribute="centerX" secondItem="wGW-YT-1mk" secondAttribute="centerX" id="ShB-mo-GIA"/>
                                     <constraint firstItem="WKb-Ai-zmf" firstAttribute="leading" secondItem="V3m-8P-3JU" secondAttribute="leadingMargin" id="ZC8-v1-8Rv"/>
+                                    <constraint firstItem="d3B-yF-bTP" firstAttribute="top" secondItem="wGW-YT-1mk" secondAttribute="bottom" constant="10" id="cfy-Y3-A0I"/>
                                     <constraint firstAttribute="centerY" secondItem="d3B-yF-bTP" secondAttribute="centerY" id="erV-5a-uvk"/>
                                     <constraint firstItem="net-zm-nJT" firstAttribute="bottom" secondItem="V3m-8P-3JU" secondAttribute="bottomMargin" id="kbH-Vh-bIW"/>
                                     <constraint firstItem="net-zm-nJT" firstAttribute="top" secondItem="WKb-Ai-zmf" secondAttribute="top" id="pJS-oi-kGr"/>
@@ -121,6 +129,8 @@
                     <connections>
                         <outlet property="lapButton" destination="net-zm-nJT" id="tJH-mD-gbe"/>
                         <outlet property="lapTableView" destination="YLM-uV-uRK" id="v3m-p9-yAK"/>
+                        <outlet property="lapTableview" destination="YLM-uV-uRK" id="97j-fx-im2"/>
+                        <outlet property="lapTimeLabel" destination="wGW-YT-1mk" id="qab-yg-W0s"/>
                         <outlet property="startButton" destination="WKb-Ai-zmf" id="tIV-cT-501"/>
                         <outlet property="stopwatchLabel" destination="d3B-yF-bTP" id="5WL-sY-mEL"/>
                     </connections>
