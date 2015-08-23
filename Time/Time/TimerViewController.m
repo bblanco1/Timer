@@ -8,15 +8,18 @@
 
 #import "TimerViewController.h"
 
-@interface TimerViewController ()
+@interface TimerViewController () {
+    
+    int afterRemainder;
+    int remainder;
+    NSTimeInterval countDownInterval;
+}
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
-@property (nonatomic) NSTimer *timer;
-@property (nonatomic) NSDate *startTime;
-@property (nonatomic) NSString *time;
+
 
 
 
@@ -34,37 +37,27 @@
  
 }
 
-
+- (void) updateCountDown {
+    
+    afterRemainder --;
+    
+    int hours = (int)(afterRemainder/(60*60));
+    int mins = (int)(((int)afterRemainder/60) - (hours * 60));
+    int secs = (int)(((int)afterRemainder - (60 *mins) - (60 * hours * 60)));
+    NSString *timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
+    
+    self.countdownLabel.text = timeDisplay;
+}
 
 - (IBAction)startButtonTapped:(id)sender {
     
-    // UIDatePicker format
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"HH:mm:ss"];
+    countDownInterval = (NSTimeInterval)_timerPicker.countDownDuration;
+    remainder = countDownInterval;
+    afterRemainder = countDownInterval - remainder%60;
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
     
-    self.time = [outputFormatter stringFromDate:self.timerPicker.date];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                             target:self
-                                                selector:@selector(timerPicker)
-                                           userInfo:nil
-                                            repeats:YES];
-    
-    NSLog(@"%@", self.timer);
 }
-
-    
-//-(void)updateTime
-//{
-//    //Get the time left until the specified date
-//    NSInteger ti = ((NSInteger)[self.timerPicker.date timeIntervalSinceNow]);
-//    NSInteger seconds = ti % 60;
-//    NSInteger minutes = (ti / 60) % 60;
-//    NSInteger hours = (ti / 3600) % 24;
-//    
-//    //Update the label with the remaining time
-//    self.countdownLabel.text = [NSString stringWithFormat:@"%02i hrs %02i min %02i sec", hours, minutes, seconds];
-//}
 
 
 - (IBAction)pauseButtonTapped:(id)sender {
