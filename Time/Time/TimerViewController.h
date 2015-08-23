@@ -12,6 +12,6 @@ int count;
 
 @interface TimerViewController : UIViewController
 
-- (void) startCounting;
+
 
 @end

@@ -14,6 +14,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
+@property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSDate *startTime;
+@property (nonatomic) NSString *time;
+
+
 
 @end
 
@@ -33,24 +38,35 @@
 
 - (IBAction)startButtonTapped:(id)sender {
     
-
-    NSTimer *countDown = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeLeft) userInfo:nil repeats:YES];
+    // UIDatePicker format
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"HH:mm:ss"];
     
+    self.time = [outputFormatter stringFromDate:self.timerPicker.date];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                             target:self
+                                                selector:@selector(timerPicker)
+                                           userInfo:nil
+                                            repeats:YES];
+    
+    NSLog(@"%@", self.timer);
 }
 
-- (void) startCounting {
     
-}
+//-(void)updateTime
+//{
+//    //Get the time left until the specified date
+//    NSInteger ti = ((NSInteger)[self.timerPicker.date timeIntervalSinceNow]);
+//    NSInteger seconds = ti % 60;
+//    NSInteger minutes = (ti / 60) % 60;
+//    NSInteger hours = (ti / 3600) % 24;
+//    
+//    //Update the label with the remaining time
+//    self.countdownLabel.text = [NSString stringWithFormat:@"%02i hrs %02i min %02i sec", hours, minutes, seconds];
+//}
 
-- (void) timeLeft {
-    
-    NSInteger timeLeft = ((NSInteger) [self.timerPicker.date timeIntervalSinceNow]);
-    NSInteger seconds = timeLeft % 60;
-    NSInteger minutes = (timeLeft / 60) % 60;
-    NSInteger hours = (timeLeft / 3600) % 60;
-    
-    self.countdownLabel.text = [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
-}
+
 - (IBAction)pauseButtonTapped:(id)sender {
     
 }
