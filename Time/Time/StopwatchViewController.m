@@ -13,10 +13,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
 @property (weak, nonatomic) IBOutlet UITableView *lapTableView;
-@property (nonatomic) BOOL timerRunning;
+
 @property (nonatomic) NSTimer *stopwatchTimer;
 @property (nonatomic) NSDate *startTime;
-@property (nonatomic) NSDate *lapTime;
+@property (nonatomic) NSTimeInterval totalTime;
+@property (nonatomic) NSTimeInterval timeSession;
+
+@property (nonatomic) NSTimeInterval lapTime;
 @property (nonatomic) NSMutableArray *lapTimes;
 
 
@@ -27,60 +30,95 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-    !self.timerRunning;
+//    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
     
     self.lapTimes = [[NSMutableArray alloc] init];
 }
 
--(void) createTimer {
-   
-    NSTimer *stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:stopwatchTimer forMode: NSDefaultRunLoopMode];
-    self.stopwatchTimer = stopwatchTimer;
-    
-}
-
--(void) updateTimer {
-    NSDate *currentTime = [NSDate date];
-    NSTimeInterval timeInterval = [currentTime timeIntervalSinceDate:self.startTime];
-    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    [dateFormatter setDateFormat:@"mm:ss:SS"];
-//    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]]; *** we may not need this ***
-    NSString *timeString = [dateFormatter stringFromDate: timerDate];
-    
-    self.stopwatchLabel.text = timeString;
-
-}
 
 - (IBAction)startButtonTapped:(id)sender {
-    if (!self.timerRunning) {
     
-        [self createTimer];
-        self.startTime = [NSDate date];
-        [self updateTimer];
+    //make sure button text is "Start"
+    
+    if ([self.startButton.titleLabel.text isEqualToString:@"Start"]) {
         
-        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
-        self.timerRunning;
+        //set start time
+        
+        self.startTime = [NSDate date];
+        
+        //create timer and add to run loop
+        
+        self.stopwatchTimer = [NSTimer timerWithTimeInterval:1/60.0 target:self selector:@selector(stopwatchTimerFiring:) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.stopwatchTimer forMode:NSRunLoopCommonModes];
+        
+        //change button label
+        
+        [self changeButtonLabel];
     }
+    
 }
 
 - (IBAction)stopButtonTapped:(id)sender {
-    if (self.timerRunning) {
+    
+    //make sure button text is not "Start"
+    
+    if (![self.startButton.titleLabel.text isEqualToString:@"Start"]) {
         
-        [self.stopwatchTimer isValid];
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-        !self.timerRunning;
+        //set stop time
+        
+        NSDate *stopTime = [NSDate date];
+        
+        //set time elapsed between start and stop times
+        
+        NSTimeInterval timeElapsed = [stopTime timeIntervalSinceDate:self.startTime];
+        self.totalTime = self.totalTime + timeElapsed;
+        
+        //stop timer
+        
         [self.stopwatchTimer invalidate];
         
+        //set button text to "start"
         
+        [self changeButtonLabel];
+    }
+    
+}
+
+-(void) stopwatchTimerFiring: (NSTimer *)timer {
+    
+    //get current time
+    
+    NSDate *now = [NSDate date];
+    
+    //get total time elapsed in session
+    
+    self.timeSession = [now timeIntervalSinceDate:self.startTime];
+    NSTimeInterval timeElapsed = self.totalTime + self.timeSession;
+    
+    //update time label
+    
+    self.stopwatchLabel.text = [NSString stringWithFormat:@"%0.2f",timeElapsed];
+}
+
+-(void) changeButtonLabel {
+    
+    //whatever the button label is, change it to the opposite
+    
+    if ([self.startButton.titleLabel.text isEqualToString:@"Start"]) {
+        
+        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        
+    } else {
+        
+        [self.startButton setTitle:@"Start" forState: UIControlStateNormal];
     }
 }
 
 - (IBAction)lapButtonTapped:(id)sender {
-    self.lapTime = [NSDate date];
+    NSDate *lap = [NSDate date];
+    NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.startTime];
+    NSLog(@"0.2%f", lapCurrentTime);
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
