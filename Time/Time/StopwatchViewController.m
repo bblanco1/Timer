@@ -21,6 +21,7 @@
 
 @property (nonatomic) NSTimeInterval lapTime;
 @property (nonatomic) NSMutableArray *lapTimes;
+@property (nonatomic) NSTimer *lapTimer;
 @property (weak, nonatomic) IBOutlet UILabel *lapTimeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *lapTableview;
 @property (nonatomic) NSDate *lapStartTime;
@@ -130,11 +131,11 @@
         //reset timer
         
         [self.stopwatchTimer invalidate];
+        [self.lapTimer invalidate];
         [self.lapTimes removeAllObjects];
         [self.lapTableView reloadData];
         self.stopwatchLabel.text = @"00:00:00";
         self.lapTimeLabel.text = @"00:00";
-        
         self.totalTime = 0;
         
     } else {
@@ -161,16 +162,35 @@
         
         self.lapStartTime = [NSDate date];
         
+        //refactor -- create timer
+        
+        self.lapTimer = [NSTimer timerWithTimeInterval:1/60.0 target:self selector:@selector(lapTimerFiring:) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.lapTimer forMode:NSRunLoopCommonModes];
     }
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
+-(void) lapTimerFiring:(NSTimer *)timer {
+   
+    //get current time when lap started
     
+    NSDate *now = [NSDate date];
+    
+    //get total time elapsed in lap session
+    
+    NSTimeInterval lapSession = [now timeIntervalSinceDate:self.lapStartTime];
+//    NSTimeInterval timeElapsed = self.totalTime + self.timeSession;
+    
+    //update time label
+    
+    self.lapTimeLabel.text = [NSString stringWithFormat:@"%0.2f",lapSession];
+    
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
     return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.lapTimes.count;
 }
 
@@ -178,9 +198,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stopwatchCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.lapTimeLabel.text;
+    cell.textLabel.text = self.lapTimes[indexPath.row];
     
-    cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count]- indexPath.row -1];
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count] - indexPath.row - 1];
      
     return cell;
 }
