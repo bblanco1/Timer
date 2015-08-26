@@ -12,7 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
-@property (weak, nonatomic) IBOutlet UITableView *lapTableView;
 
 @property (nonatomic) NSTimer *stopwatchTimer;
 @property (nonatomic) NSDate *startTime;
@@ -25,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lapTimeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *lapTableview;
 @property (nonatomic) NSDate *lapStartTime;
+@property (nonatomic) NSTimeInterval totalLapTime;
 
 
 @end
@@ -49,7 +49,6 @@
         //set start time
         
         self.startTime = [NSDate date];
-        self.lapStartTime = self.startTime;
         
         //create timer and add to run loop
         
@@ -78,9 +77,13 @@
         NSTimeInterval timeElapsed = [stopTime timeIntervalSinceDate:self.startTime];
         self.totalTime = self.totalTime + timeElapsed;
         
-        //stop timer
+        NSTimeInterval lapTimeElapsed = [stopTime timeIntervalSinceDate:self.lapStartTime];
+        self.totalLapTime = self.totalLapTime + lapTimeElapsed;
+        
+        //stop timers
         
         [self.stopwatchTimer invalidate];
+        [self.lapTimer invalidate];
         
         //set button text to "start"
         
@@ -114,15 +117,44 @@
         [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
         [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
         
+        //color stuff
+        
+//        StopwatchViewController *viewcontroller = [[StopwatchViewController alloc] init];
+//        [viewcontroller.view.layer setBackgroundColor: [UIColor colorWithRed:0.521569 green:0.768627 blue:0.254902 alpha:1].CGColor];
+        
     } else {
         
         [self.startButton setTitle:@"Start" forState: UIControlStateNormal];
         [self.lapButton setTitle:@"Reset" forState:UIControlStateNormal];
+    
     }
     
 }
 
 - (IBAction)lapButtonTapped:(id)sender {
+    
+    //Check that button doesn not say "Reset"
+    
+    if (![self.lapButton.titleLabel.text isEqualToString:@"Reset"]) {
+        
+        //set start time
+        
+        self.lapStartTime = [NSDate date];
+        
+        //create timer
+        
+        self.lapTimer = [NSTimer timerWithTimeInterval:1/60.0 target:self selector:@selector(lapTimerFiring:) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.lapTimer forMode:NSRunLoopCommonModes];
+        
+        //add lap to beginning of array so most recent lap is highest up
+        
+        [self.lapTimes insertObject:self.lapTimeLabel.text atIndex:0];
+        
+        [self.lapTableview reloadData];
+    }
+}
+
+- (IBAction)resetButtonTapped:(id)sender {
     
     //make sure button says "Reset" before resetting
     
@@ -130,44 +162,18 @@
         
         //reset timer
         
+        self.stopwatchLabel.text = @"00:00:00";
+        self.lapTimeLabel.text = @"00:00";
+        self.totalLapTime = 0;
+        self.totalTime = 0;
         [self.stopwatchTimer invalidate];
         [self.lapTimer invalidate];
         [self.lapTimes removeAllObjects];
-        [self.lapTableView reloadData];
-        self.stopwatchLabel.text = @"00:00:00";
-        self.lapTimeLabel.text = @"00:00";
-        self.totalTime = 0;
-        
-    } else {
-        
-        //get current time
-        
-        NSDate *lap = [NSDate date];
-        
-        //get total time elapsed in lap
-        
-        NSTimeInterval lapCurrentTime = [lap timeIntervalSinceDate:self.lapStartTime];
-        
-        //change lap label to lapCurrentTime
-        
-        self.lapTimeLabel.text = [NSString stringWithFormat:@"%f", lapCurrentTime];
-        
-        //add lap to array
-        
-        [self.lapTimes addObject:self.lapTimeLabel.text];
-        
         [self.lapTableview reloadData];
         
-        //restart next lap
-        
-        self.lapStartTime = [NSDate date];
-        
-        //refactor -- create timer
-        
-        self.lapTimer = [NSTimer timerWithTimeInterval:1/60.0 target:self selector:@selector(lapTimerFiring:) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:self.lapTimer forMode:NSRunLoopCommonModes];
     }
 }
+
 
 -(void) lapTimerFiring:(NSTimer *)timer {
    
@@ -178,11 +184,11 @@
     //get total time elapsed in lap session
     
     NSTimeInterval lapSession = [now timeIntervalSinceDate:self.lapStartTime];
-//    NSTimeInterval timeElapsed = self.totalTime + self.timeSession;
+    NSTimeInterval timeElapsed = self.totalLapTime + lapSession;
     
     //update time label
     
-    self.lapTimeLabel.text = [NSString stringWithFormat:@"%0.2f",lapSession];
+    self.lapTimeLabel.text = [NSString stringWithFormat:@"%0.2f", timeElapsed];
     
 }
 
@@ -199,6 +205,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stopwatchCell" forIndexPath:indexPath];
     
     cell.textLabel.text = self.lapTimes[indexPath.row];
+    
+//    cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count] - indexPath.row - 1];
     
     cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count] - indexPath.row - 1];
      
