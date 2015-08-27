@@ -81,9 +81,9 @@
         self.totalLapTime = self.totalLapTime + lapTimeElapsed;
         
         //stop timers
-        
-        [self.stopwatchTimer invalidate];
         [self.lapTimer invalidate];
+        [self.stopwatchTimer invalidate];
+        
         
         //set button text to "start"
         
