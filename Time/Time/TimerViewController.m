@@ -44,9 +44,13 @@ int remainder;
     self.countdownLabel.text = timeDisplay;
     
     if (afterRemainder == 0) {
+        
+        _countdownLabel.hidden = true;
+        _timerPicker.hidden = false;
         [startCountDownTimer invalidate];
         startCountDownTimer = nil;
-        self.countdownLabel.text = @"00 : 00 : 00";
+        self.countdownLabel.text = @"00 : 00 : 00";\
+        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
         afterRemainder = 0;
     }
 }
@@ -66,7 +70,7 @@ int remainder;
     
         [sender setTitle:@"Stop" forState:UIControlStateNormal];
    
-    } else {
+    } else{
         _countdownLabel.hidden = true;
         _timerPicker.hidden = false;
         startCountDown = false;
@@ -82,11 +86,11 @@ int remainder;
 - (IBAction)pauseButtonTapped:(id)sender {
     
     if (startCountDown == true) {
-        [sender setTitle:@"Pause" forState:UIControlStateNormal];
+        [sender setTitle:@"Resume" forState:UIControlStateNormal];
         [startCountDownTimer invalidate];
         startCountDown = false;
     
-    } else
+    } else if  (startCountDown == false){
     countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
     remainder = countDownTimeInterval;
     afterRemainder = countDownTimeInterval - remainder%60;
@@ -94,7 +98,8 @@ int remainder;
     
     startCountDown = true;
     
-    [sender setTitle:@"Resume" forState:UIControlStateNormal];
+    [sender setTitle:@"Pause" forState:UIControlStateNormal];
+    }
     }
 
 

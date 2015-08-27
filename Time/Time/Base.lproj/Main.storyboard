@@ -165,44 +165,36 @@
                                     <!--2015-08-22 16:07:45 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aP-kG-ahW">
-                                <rect key="frame" x="35" y="99" width="250" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aP-kG-ahW">
+                                <rect key="frame" x="160" y="284" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVZ-eC-OdY">
-                                <rect key="frame" x="0.0" y="251" width="320" height="268"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aL-Pn-YVN">
-                                        <rect key="frame" x="58" y="8" width="46" height="30"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startButtonTapped:" destination="LG5-jp-sCJ" eventType="touchUpInside" id="qNa-dh-GCA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9G7-Z3-fON">
-                                        <rect key="frame" x="202" y="8" width="62" height="30"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pauseButtonTapped:" destination="LG5-jp-sCJ" eventType="touchUpInside" id="GZw-RA-U0v"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aL-Pn-YVN">
+                                <rect key="frame" x="80" y="481" width="46" height="30"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="LG5-jp-sCJ" eventType="touchUpInside" id="qNa-dh-GCA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9G7-Z3-fON">
+                                <rect key="frame" x="182" y="481" width="62" height="30"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseButtonTapped:" destination="LG5-jp-sCJ" eventType="touchUpInside" id="GZw-RA-U0v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.74027774469999996" blue="0.30387787319999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Zek-ES-4kq" firstAttribute="top" secondItem="AVZ-eC-OdY" secondAttribute="bottom" id="C2o-1u-jvx"/>
+                            <constraint firstItem="3aP-kG-ahW" firstAttribute="centerX" secondItem="Pqu-39-SNq" secondAttribute="centerX" id="3jU-3v-6KJ"/>
                             <constraint firstItem="aEO-1r-PbI" firstAttribute="leading" secondItem="Pqu-39-SNq" secondAttribute="leading" id="HQI-E1-UtS"/>
-                            <constraint firstItem="AVZ-eC-OdY" firstAttribute="top" secondItem="aEO-1r-PbI" secondAttribute="bottom" constant="46" id="IuZ-Cv-Ctb"/>
-                            <constraint firstAttribute="trailing" secondItem="AVZ-eC-OdY" secondAttribute="trailing" id="UGR-DI-UIl"/>
-                            <constraint firstItem="AVZ-eC-OdY" firstAttribute="leading" secondItem="Pqu-39-SNq" secondAttribute="leading" id="W3f-7M-gYS"/>
+                            <constraint firstItem="3aP-kG-ahW" firstAttribute="centerY" secondItem="Pqu-39-SNq" secondAttribute="centerY" id="LJh-Aa-moA"/>
                             <constraint firstItem="aEO-1r-PbI" firstAttribute="top" secondItem="3m8-kM-0ml" secondAttribute="bottom" constant="23" id="lnv-OH-PGe"/>
                             <constraint firstAttribute="trailing" secondItem="aEO-1r-PbI" secondAttribute="trailing" id="u0Y-bg-zDY"/>
                         </constraints>
