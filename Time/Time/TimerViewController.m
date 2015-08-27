@@ -22,6 +22,7 @@ int remainder;
     //NSTimer time;
     NSTimeInterval countDownTimeInterval;
     NSTimer *startCountDownTimer;
+    NSDate *pauseStart, *previousFireTime;
     BOOL startCountDown;
 }
 
@@ -80,7 +81,22 @@ int remainder;
 
 - (IBAction)pauseButtonTapped:(id)sender {
     
-}
+    if (startCountDown == true) {
+        [sender setTitle:@"Pause" forState:UIControlStateNormal];
+        [startCountDownTimer invalidate];
+        startCountDown = false;
+    
+    } else
+    countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
+    remainder = countDownTimeInterval;
+    afterRemainder = countDownTimeInterval - remainder%60;
+    startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+    
+    startCountDown = true;
+    
+    [sender setTitle:@"Resume" forState:UIControlStateNormal];
+    }
+
 
 
 
