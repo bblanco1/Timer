@@ -81,11 +81,10 @@
         self.totalLapTime = self.totalLapTime + lapTimeElapsed;
         
         //stop timers
-        
+
+        [self.lapTimer invalidate];
         [self.stopwatchTimer invalidate];
         
-        NSLog(@"invalidating timer");
-        [self.lapTimer invalidate];
         
         //set button text to "start"
         
@@ -105,8 +104,6 @@
         self.lapStartTime = [NSDate date];
         
         //create timer
-        
-        NSLog(@"Setting timer");
         
         if (self.lapTimer) {
             
