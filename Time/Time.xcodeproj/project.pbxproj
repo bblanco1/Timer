@@ -12,6 +12,13 @@
 		223B049C1B88C637004C0371 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049B1B88C637004C0371 /* TimerViewController.m */; };
 		223B049F1B88C66D004C0371 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049E1B88C66D004C0371 /* SettingsTableViewController.m */; };
 		223B04A11B8FE7A6004C0371 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223B04A01B8FE7A6004C0371 /* AVFoundation.framework */; };
+		223B04A91B8FF585004C0371 /* backwards.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A21B8FF585004C0371 /* backwards.mp3 */; };
+		223B04AA1B8FF585004C0371 /* cantTell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A31B8FF585004C0371 /* cantTell.mp3 */; };
+		223B04AB1B8FF585004C0371 /* cena.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A41B8FF585004C0371 /* cena.mp3 */; };
+		223B04AC1B8FF585004C0371 /* hourglass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A51B8FF585004C0371 /* hourglass.mp3 */; };
+		223B04AD1B8FF585004C0371 /* isometric.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A61B8FF585004C0371 /* isometric.mp3 */; };
+		223B04AE1B8FF585004C0371 /* myOdds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A71B8FF585004C0371 /* myOdds.mp3 */; };
+		223B04AF1B8FF585004C0371 /* time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A81B8FF585004C0371 /* time.mp3 */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
 		8D0537611B86687C00588318 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537601B86687C00588318 /* AppDelegate.m */; };
 		8D0537671B86687C00588318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0537651B86687C00588318 /* Main.storyboard */; };
@@ -40,6 +47,13 @@
 		223B049D1B88C66D004C0371 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		223B049E1B88C66D004C0371 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		223B04A01B8FE7A6004C0371 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		223B04A21B8FF585004C0371 /* backwards.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = backwards.mp3; path = sounds/backwards.mp3; sourceTree = "<group>"; };
+		223B04A31B8FF585004C0371 /* cantTell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cantTell.mp3; path = sounds/cantTell.mp3; sourceTree = "<group>"; };
+		223B04A41B8FF585004C0371 /* cena.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cena.mp3; path = sounds/cena.mp3; sourceTree = "<group>"; };
+		223B04A51B8FF585004C0371 /* hourglass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hourglass.mp3; path = sounds/hourglass.mp3; sourceTree = "<group>"; };
+		223B04A61B8FF585004C0371 /* isometric.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = isometric.mp3; path = sounds/isometric.mp3; sourceTree = "<group>"; };
+		223B04A71B8FF585004C0371 /* myOdds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = myOdds.mp3; path = sounds/myOdds.mp3; sourceTree = "<group>"; };
+		223B04A81B8FF585004C0371 /* time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = time.mp3; path = sounds/time.mp3; sourceTree = "<group>"; };
 		8D0537581B86687B00588318 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D05375C1B86687B00588318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D05375D1B86687C00588318 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +129,13 @@
 		8D05375B1B86687B00588318 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				223B04A21B8FF585004C0371 /* backwards.mp3 */,
+				223B04A31B8FF585004C0371 /* cantTell.mp3 */,
+				223B04A41B8FF585004C0371 /* cena.mp3 */,
+				223B04A61B8FF585004C0371 /* isometric.mp3 */,
+				223B04A51B8FF585004C0371 /* hourglass.mp3 */,
+				223B04A71B8FF585004C0371 /* myOdds.mp3 */,
+				223B04A81B8FF585004C0371 /* time.mp3 */,
 				8D05375C1B86687B00588318 /* Info.plist */,
 				8D05375D1B86687C00588318 /* main.m */,
 			);
@@ -219,8 +240,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D0537671B86687C00588318 /* Main.storyboard in Resources */,
+				223B04AF1B8FF585004C0371 /* time.mp3 in Resources */,
+				223B04A91B8FF585004C0371 /* backwards.mp3 in Resources */,
+				223B04AD1B8FF585004C0371 /* isometric.mp3 in Resources */,
+				223B04AC1B8FF585004C0371 /* hourglass.mp3 in Resources */,
 				8D05376C1B86687C00588318 /* LaunchScreen.xib in Resources */,
+				223B04AE1B8FF585004C0371 /* myOdds.mp3 in Resources */,
 				8D0537691B86687C00588318 /* Images.xcassets in Resources */,
+				223B04AA1B8FF585004C0371 /* cantTell.mp3 in Resources */,
+				223B04AB1B8FF585004C0371 /* cena.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

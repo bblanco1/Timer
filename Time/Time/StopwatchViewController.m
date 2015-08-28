@@ -8,7 +8,18 @@
 
 #import "StopwatchViewController.h"
 
-@interface StopwatchViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface StopwatchViewController () <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate>
+
+//{
+//    AVAudioPlayer *backwardsPlayer;
+//    AVAudioPlayer *cenaPlayer;
+//    AVAudioPlayer *cantTellPlayer;
+//    AVAudioPlayer *isometricPlayer;
+//    AVAudioPlayer *hourglassPlayer;
+//    AVAudioPlayer *myOddsPlayer;
+//    AVAudioPlayer *timePlayer;
+//}
+
 @property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
@@ -27,8 +38,6 @@
 @property (nonatomic) NSTimeInterval totalLapTime;
 
 @property (nonatomic) AVAudioPlayer *audioPlayer;
-
-
 
 @end
 
@@ -61,8 +70,24 @@
         //change button label
         
         [self changeButtonLabel];
+        
+        //pick song to play with timer
+        
+        [self playSong:@"cena"];
     }
     
+}
+
+- (void) playSong: (NSString *) song {
+    
+    song = [NSString stringWithFormat:@"%@/" "%@" ".mp3", [[NSBundle mainBundle] resourcePath], song];
+    NSURL *songUrl = [NSURL fileURLWithPath: song];
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: songUrl error:nil];
+    
+    self.audioPlayer.delegate = self;
+    
+    [self.audioPlayer play];
 }
 
 - (IBAction)stopButtonTapped:(id)sender {
@@ -87,6 +112,7 @@
 
         [self.lapTimer invalidate];
         [self.stopwatchTimer invalidate];
+        [self.audioPlayer stop];
         
         
         //set button text to "start"
@@ -195,6 +221,7 @@
         [self.lapTimer invalidate];
         [self.lapTimes removeAllObjects];
         [self.lapTableview reloadData];
+        [self.audioPlayer stop];
         
     }
 }
@@ -213,8 +240,6 @@
     
     cell.textLabel.text = self.lapTimes[indexPath.row];
     
-//    cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count] - indexPath.row - 1];
-    
     cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count] - indexPath.row - 1];
      
     return cell;
@@ -223,6 +248,8 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        //swipe to delete
         
         [self.lapTimes removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
