@@ -10,16 +10,6 @@
 
 @interface StopwatchViewController () <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate>
 
-//{
-//    AVAudioPlayer *backwardsPlayer;
-//    AVAudioPlayer *cenaPlayer;
-//    AVAudioPlayer *cantTellPlayer;
-//    AVAudioPlayer *isometricPlayer;
-//    AVAudioPlayer *hourglassPlayer;
-//    AVAudioPlayer *myOddsPlayer;
-//    AVAudioPlayer *timePlayer;
-//}
-
 @property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *lapButton;
@@ -38,6 +28,8 @@
 @property (nonatomic) NSTimeInterval totalLapTime;
 
 @property (nonatomic) AVAudioPlayer *audioPlayer;
+@property (nonatomic) NSTimeInterval songCurrentTime; //have to implement this
+
 
 @end
 
@@ -73,7 +65,7 @@
         
         //pick song to play with timer
         
-        [self playSong:@"cena"];
+        [self playSong:@"hourglass"];
     }
     
 }
@@ -87,7 +79,12 @@
     
     self.audioPlayer.delegate = self;
     
+    [self.audioPlayer setVolume:0.8];
+    
     [self.audioPlayer play];
+    
+    self.audioPlayer.numberOfLoops = -1;
+    
 }
 
 - (IBAction)stopButtonTapped:(id)sender {
@@ -112,8 +109,11 @@
 
         [self.lapTimer invalidate];
         [self.stopwatchTimer invalidate];
-        [self.audioPlayer stop];
         
+        //pause audio and get time interval for pause
+        
+        [self setSongCurrentTime:self.audioPlayer.currentTime];
+        [self.audioPlayer pause];
         
         //set button text to "start"
         
@@ -193,8 +193,8 @@
         
         //color stuff
         
-        StopwatchViewController *viewcontroller = [[StopwatchViewController alloc] init];
-        [viewcontroller.view.layer setBackgroundColor: [UIColor colorWithRed:0.521569 green:0.768627 blue:0.254902 alpha:1].CGColor];
+//        StopwatchViewController *viewcontroller = [[StopwatchViewController alloc] init];
+//        [viewcontroller.view.layer setBackgroundColor: [UIColor colorWithRed:0.521569 green:0.768627 blue:0.254902 alpha:1].CGColor];
         
     } else {
         
