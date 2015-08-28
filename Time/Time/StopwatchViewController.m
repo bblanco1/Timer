@@ -26,6 +26,9 @@
 @property (nonatomic) NSDate *lapStartTime;
 @property (nonatomic) NSTimeInterval totalLapTime;
 
+@property (nonatomic) AVAudioPlayer *audioPlayer;
+
+
 
 @end
 
@@ -164,8 +167,8 @@
         
         //color stuff
         
-//        StopwatchViewController *viewcontroller = [[StopwatchViewController alloc] init];
-//        [viewcontroller.view.layer setBackgroundColor: [UIColor colorWithRed:0.521569 green:0.768627 blue:0.254902 alpha:1].CGColor];
+        StopwatchViewController *viewcontroller = [[StopwatchViewController alloc] init];
+        [viewcontroller.view.layer setBackgroundColor: [UIColor colorWithRed:0.521569 green:0.768627 blue:0.254902 alpha:1].CGColor];
         
     } else {
         
@@ -215,6 +218,15 @@
     cell.detailTextLabel.text = [NSString stringWithFormat: @"Lap %ld", [self.lapTimes count] - indexPath.row - 1];
      
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.lapTimes removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }
 }
 
 
