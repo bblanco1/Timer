@@ -32,7 +32,6 @@
 @property (nonatomic) BOOL songStarted;
 
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizer;
-
 @property (nonatomic) NSArray *backgroundsArray;
 
 @end
@@ -41,23 +40,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    self.swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    self.backgroundsArray = @[
+                              //brownish red
+                              [UIColor colorWithRed:244/255.0 green:226/255.0 blue:216/255.0 alpha:1.0],
+                              
+                              //aquamarine
+                              [UIColor colorWithRed:190/255.0 green:243/255.0 blue:243/255.0 alpha:1.0],
+                              
+                              //light green
+                              [UIColor colorWithRed:222/255.0 green:244/255.0 blue:225/255.0 alpha:1.0],
+                              
+                              //light grey
+                              [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1.0]
+                              
+                              ];
 
     self.lapTableview.dataSource = self;
     self.lapTableview.delegate = self;
     self.lapTimes = [[NSMutableArray alloc] init];
-    
-    self.startButton.layer.borderWidth = 2.0;
+
+    self.startButton.layer.borderWidth = 1.0;
     self.startButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.startButton.layer.cornerRadius = self.startButton.bounds.size.width/2;
     [self.startButton setClipsToBounds:YES];
     
-    self.lapButton.layer.borderWidth = 2.0;
+    self.lapButton.layer.borderWidth = 1.0;
     self.lapButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.lapButton.layer.cornerRadius = self.startButton.bounds.size.width/2;
     [self.lapButton setClipsToBounds:YES];
     
     self.lapTableview.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.lapTableview.layer.borderWidth = 2.0;
+    self.lapTableview.layer.borderWidth = 1.0;
     self.lapTableview.layer.cornerRadius = 10.0;
     
 }
@@ -227,11 +245,6 @@
         [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
         [self.lapButton setTitle:@"Lap" forState:UIControlStateNormal];
         
-        //color stuff
-        
-//        StopwatchViewController *viewcontroller = [[StopwatchViewController alloc] init];
-//        [viewcontroller.view.layer setBackgroundColor: [UIColor colorWithRed:0.521569 green:0.768627 blue:0.254902 alpha:1].CGColor];
-        
     } else {
         
         [self.startButton setTitle:@"Start" forState: UIControlStateNormal];
@@ -249,8 +262,8 @@
         
         //reset timer
         
-        self.stopwatchLabel.text = @"00:00:00";
-        self.lapTimeLabel.text = @"00:00";
+        self.stopwatchLabel.text = @"0:00";
+        self.lapTimeLabel.text = @"0:00";
         self.totalLapTime = 0;
         self.totalTime = 0;
         [self.stopwatchTimer invalidate];
@@ -295,9 +308,32 @@
 
 - (IBAction)swipeGestureRecognizerSwiped:(id)sender {
     
-    
+    [self changeBackgroundColors];
 }
 
+- (void) changeBackgroundColors {
+    
+    if ([self.view.backgroundColor isEqual: [UIColor whiteColor]]) {
+        
+        self.view.backgroundColor = [self.backgroundsArray objectAtIndex:0];
+        
+    } else if ([self.view.backgroundColor isEqual:[self.backgroundsArray objectAtIndex:0]]) {
+        
+        self.view.backgroundColor = [self.backgroundsArray objectAtIndex:1];
+        
+    } else if ([self.view.backgroundColor isEqual: [self.backgroundsArray objectAtIndex:1]]) {
+        
+        self.view.backgroundColor = [self.backgroundsArray objectAtIndex:2];
+        
+    } else if ([self.view.backgroundColor isEqual: [self.backgroundsArray objectAtIndex:2]]) {
 
+        self.view.backgroundColor = [self.backgroundsArray objectAtIndex:3];
+        
+    } else if ([self.view.backgroundColor isEqual: [self.backgroundsArray objectAtIndex:3]]) {
+        
+        self.view.backgroundColor = [UIColor blackColor];
+//        self setb
+    }
+}
 
 @end
