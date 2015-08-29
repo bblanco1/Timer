@@ -20,7 +20,6 @@
 		223B04AE1B8FF585004C0371 /* myOdds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A71B8FF585004C0371 /* myOdds.mp3 */; };
 		223B04AF1B8FF585004C0371 /* time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A81B8FF585004C0371 /* time.mp3 */; };
 		5AAA68841B9201F7008D6FB0 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA68831B9201F7008D6FB0 /* EventViewController.m */; };
-		5AAA688D1B923065008D6FB0 /* DatePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA688C1B923065008D6FB0 /* DatePickerTableViewCell.m */; };
 		5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
 		8D0537611B86687C00588318 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537601B86687C00588318 /* AppDelegate.m */; };
@@ -59,8 +58,6 @@
 		223B04A81B8FF585004C0371 /* time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = time.mp3; path = sounds/time.mp3; sourceTree = "<group>"; };
 		5AAA68821B9201F7008D6FB0 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		5AAA68831B9201F7008D6FB0 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
-		5AAA688B1B923065008D6FB0 /* DatePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerTableViewCell.h; sourceTree = "<group>"; };
-		5AAA688C1B923065008D6FB0 /* DatePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerTableViewCell.m; sourceTree = "<group>"; };
 		5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerMainTableViewController.h; sourceTree = "<group>"; };
 		5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerMainTableViewController.m; sourceTree = "<group>"; };
 		8D0537581B86687B00588318 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,8 +122,6 @@
 				223B04981B88C624004C0371 /* StopwatchViewController.m */,
 				223B049A1B88C637004C0371 /* TimerViewController.h */,
 				223B049B1B88C637004C0371 /* TimerViewController.m */,
-				5AAA688B1B923065008D6FB0 /* DatePickerTableViewCell.h */,
-				5AAA688C1B923065008D6FB0 /* DatePickerTableViewCell.m */,
 				5AAA68821B9201F7008D6FB0 /* EventViewController.h */,
 				5AAA68831B9201F7008D6FB0 /* EventViewController.m */,
 				5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */,
@@ -281,7 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AAA688D1B923065008D6FB0 /* DatePickerTableViewCell.m in Sources */,
 				223B049F1B88C66D004C0371 /* SettingsTableViewController.m in Sources */,
 				5AAA68841B9201F7008D6FB0 /* EventViewController.m in Sources */,
 				5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */,

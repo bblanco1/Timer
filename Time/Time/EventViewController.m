@@ -6,14 +6,21 @@
 //  Copyright © 2015 Mike Kavouras. All rights reserved.
 //
 
-#import "EventViewController.h"
+#import "EventViewController.h" 
 
-@interface EventViewController ()
+@interface EventViewController() <UITextFieldDelegate>
 {
     int afterRemainder;
     int remainder;
+    
 }
+
+@property (strong, nonatomic) NSMutableArray *labels;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+
+
 @end
+
 
 @implementation EventViewController
 
@@ -30,7 +37,29 @@
     [super viewDidLoad];
     
     startCountDown = false;
+    datePicker = [[UIDatePicker alloc] init];
+    datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    [self.dateSelctionTextField setInputView:datePicker];
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [toolBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(ShowSelectedDate)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [toolBar setItems:[NSArray arrayWithObjects:space, doneBtn, nil]];
+    self.dateSelctionTextField.inputAccessoryView = toolBar;
+    
+    
 }
+
+- (void)ShowSelectedDate {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yy 'at' hh:mm:ss a"];
+    self.dateSelctionTextField.text=[NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+    [self.dateSelctionTextField resignFirstResponder];
+    
+}
+
 
 - (void) updateCountDown {
     
@@ -49,7 +78,7 @@
         _timerPicker.hidden = false;
         [startCountDownTimer invalidate];
         startCountDownTimer = nil;
-        self.countdownLabel.text = @"00 : 00 : 00";\
+        self.countdownLabel.text = @"00 : 00 : 00";
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
         afterRemainder = 0;
     }
@@ -108,6 +137,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)cancelButton:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

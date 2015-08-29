@@ -8,7 +8,7 @@
 
 #import "TimerViewController.h"
 
-@interface TimerViewController () <UITableViewDelegate ,UITableViewDataSource, UITextFieldDelegate>
+@interface TimerViewController ()  <UITextFieldDelegate>
 {
     int afterRemainder;
     int remainder;
@@ -38,7 +38,7 @@
     
     startCountDown = false;
     datePicker = [[UIDatePicker alloc] init];
-    datePicker.datePickerMode = UIDatePickerModeDate;
+    datePicker.datePickerMode = UIDatePickerModeCountDownTimer;
     [self.dateSelctionTextField setInputView:datePicker];
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -54,7 +54,7 @@
 - (void)ShowSelectedDate {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd/yy"];
+    [formatter setDateFormat:@"HH 'Hours' mm 'Minutes'"];
     self.dateSelctionTextField.text=[NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
     [self.dateSelctionTextField resignFirstResponder];
     
@@ -137,7 +137,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+- (IBAction)cancelButton:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 
