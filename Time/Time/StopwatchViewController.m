@@ -45,7 +45,19 @@
     self.lapTimes = [[NSMutableArray alloc] init];
     
     self.startButton.layer.borderWidth = 2.0;
-//    self.startButton.layer.cornerRadius s
+    self.startButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.startButton.layer.cornerRadius = self.startButton.bounds.size.width/2;
+    [self.startButton setClipsToBounds:YES];
+    
+    self.lapButton.layer.borderWidth = 2.0;
+    self.lapButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.lapButton.layer.cornerRadius = self.startButton.bounds.size.width/2;
+    [self.lapButton setClipsToBounds:YES];
+    
+    self.lapTableview.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.lapTableview.layer.borderWidth = 2.0;
+    self.lapTableview.layer.cornerRadius = 10.0;
+    
 }
 
 
