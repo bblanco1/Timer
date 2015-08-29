@@ -103,6 +103,12 @@ int remainder;
     }
 
 
+- (IBAction)doneSubmit:(UIBarButtonItem *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 
 
