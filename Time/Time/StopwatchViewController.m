@@ -34,6 +34,8 @@
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizer;
 @property (nonatomic) NSArray *backgroundsArray;
 
+@property (nonatomic) UIImageView *backgroundImageView;
+
 @end
 
 @implementation StopwatchViewController
@@ -332,7 +334,29 @@
     } else if ([self.view.backgroundColor isEqual: [self.backgroundsArray objectAtIndex:3]]) {
         
         self.view.backgroundColor = [UIColor blackColor];
-//        self setb
+        
+        self.stopwatchLabel.textColor = [UIColor whiteColor];
+        
+        self.lapTimeLabel.textColor = [UIColor whiteColor];
+        
+        UIImage *cena = [UIImage imageNamed:@"cena"];
+        
+        self.backgroundImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+        
+        self.backgroundImageView.image = cena;
+        
+        [self.view insertSubview:self.backgroundImageView atIndex:0];
+
+    } else if ([self.view.backgroundColor isEqual: [UIColor blackColor]]) {
+        
+        self.backgroundImageView.image = nil;
+
+        self.view.backgroundColor = [UIColor whiteColor];
+        
+        self.stopwatchLabel.textColor = [UIColor groupTableViewBackgroundColor];
+        
+        self.lapTimeLabel.textColor = [UIColor groupTableViewBackgroundColor];
+        
     }
 }
 
