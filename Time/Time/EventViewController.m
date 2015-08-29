@@ -1,21 +1,21 @@
 //
-//  TimerViewController.m
+//  EventViewController.m
 //  Time
 //
-//  Created by Daniel Distant on 8/22/15.
-//  Copyright (c) 2015 Mike Kavouras. All rights reserved.
+//  Created by Brian Blanco on 8/29/15.
+//  Copyright © 2015 Mike Kavouras. All rights reserved.
 //
 
-#import "TimerViewController.h"
+#import "EventViewController.h"
 
-@interface TimerViewController () <UITableViewDelegate ,UITableViewDataSource>
+@interface EventViewController ()
 {
-int afterRemainder;
-int remainder;
+    int afterRemainder;
+    int remainder;
 }
 @end
 
-@implementation TimerViewController
+@implementation EventViewController
 
 {
     BOOL start;
@@ -31,9 +31,6 @@ int remainder;
     
     startCountDown = false;
 }
-
-
-
 
 - (void) updateCountDown {
     
@@ -52,7 +49,7 @@ int remainder;
         _timerPicker.hidden = false;
         [startCountDownTimer invalidate];
         startCountDownTimer = nil;
-        self.countdownLabel.text = @"00 : 00 : 00";
+        self.countdownLabel.text = @"00 : 00 : 00";\
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
         afterRemainder = 0;
     }
@@ -61,18 +58,18 @@ int remainder;
 - (IBAction)startButtonTapped:(id)sender {
     
     if (startCountDown == false) {
-    
+        
         _countdownLabel.hidden = false;
         _timerPicker.hidden = true;
-    countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
-    remainder = countDownTimeInterval;
-    afterRemainder = countDownTimeInterval - remainder%60;
-    startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
+        remainder = countDownTimeInterval;
+        afterRemainder = countDownTimeInterval - remainder%60;
+        startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
         
-    startCountDown = true;
-    
+        startCountDown = true;
+        
         [sender setTitle:@"Stop" forState:UIControlStateNormal];
-   
+        
     } else{
         _countdownLabel.hidden = true;
         _timerPicker.hidden = false;
@@ -92,18 +89,18 @@ int remainder;
         [sender setTitle:@"Resume" forState:UIControlStateNormal];
         [startCountDownTimer invalidate];
         startCountDown = false;
-    
+        
     } else if  (startCountDown == false){
-    countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
-    remainder = countDownTimeInterval;
-    afterRemainder = countDownTimeInterval - remainder%60;
-    startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-    
-    startCountDown = true;
-    
-    [sender setTitle:@"Pause" forState:UIControlStateNormal];
+        countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
+        remainder = countDownTimeInterval;
+        afterRemainder = countDownTimeInterval - remainder%60;
+        startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        
+        startCountDown = true;
+        
+        [sender setTitle:@"Pause" forState:UIControlStateNormal];
     }
-    }
+}
 
 
 - (IBAction)doneSubmit:(UIBarButtonItem *)sender {
