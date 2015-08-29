@@ -26,9 +26,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *lapTableview;
 @property (nonatomic) NSDate *lapStartTime;
 @property (nonatomic) NSTimeInterval totalLapTime;
+@property (nonatomic) NSTimeInterval timeElapsed;
 
 @property (nonatomic) AVAudioPlayer *audioPlayer;
 @property (nonatomic) NSTimeInterval songCurrentTime; //have to implement this
+@property (nonatomic) BOOL songStarted;
 
 
 @end
@@ -50,24 +52,40 @@
     
     if ([self.startButton.titleLabel.text isEqualToString:@"Start"]) {
         
-        //set start time
+        [self startButtonMethods];
         
-        self.startTime = [NSDate date];
+    } else if (![self.startButton.titleLabel.text isEqualToString:@"Start"]) {
         
-        //create timer and add to run loop
-        
-        self.stopwatchTimer = [NSTimer timerWithTimeInterval:1/60.0 target:self selector:@selector(stopwatchTimerFiring:) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:self.stopwatchTimer forMode:NSRunLoopCommonModes];
-        
-        //change button label
-        
-        [self changeButtonLabel];
-        
-        //pick song to play with timer
-        
-        [self playSong:@"hourglass"];
+        [self stopButtonMethods];
     }
     
+}
+
+- (void) startButtonMethods {
+    
+    //set start time
+    
+    self.startTime = [NSDate date];
+    
+    //create timer and add to run loop
+    
+    self.stopwatchTimer = [NSTimer timerWithTimeInterval:1/60.0 target:self selector:@selector(stopwatchTimerFiring:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.stopwatchTimer forMode:NSRunLoopCommonModes];
+    
+    //change button label
+    
+    [self changeButtonLabel];
+    
+    //pick song to play with timer
+    
+    if (!(self.songStarted)) {
+        
+        [self playSong:@"myOdds"];
+        
+    } else if (self.songStarted) {
+        
+        [self resumeSong];
+    }
 }
 
 - (void) playSong: (NSString *) song {
@@ -85,41 +103,47 @@
     
     self.audioPlayer.numberOfLoops = -1;
     
+    [self setSongStarted:YES];
+    
+}
+
+- (void) resumeSong {
+    
+    [self.audioPlayer play];
 }
 
 - (IBAction)stopButtonTapped:(id)sender {
     
-    //make sure button text is not "Start"
-    
-    if (![self.startButton.titleLabel.text isEqualToString:@"Start"]) {
-        
-        //set stop time
-        
-        NSDate *stopTime = [NSDate date];
-        
-        //set time elapsed between start and stop times
-        
-        NSTimeInterval timeElapsed = [stopTime timeIntervalSinceDate:self.startTime];
-        self.totalTime = self.totalTime + timeElapsed;
-        
-        NSTimeInterval lapTimeElapsed = [stopTime timeIntervalSinceDate:self.lapStartTime];
-        self.totalLapTime = self.totalLapTime + lapTimeElapsed;
-        
-        //stop timers
+    //empty method
+}
 
-        [self.lapTimer invalidate];
-        [self.stopwatchTimer invalidate];
-        
-        //pause audio and get time interval for pause
-        
-        [self setSongCurrentTime:self.audioPlayer.currentTime];
-        [self.audioPlayer pause];
-        
-        //set button text to "start"
-        
-        [self changeButtonLabel];
-    }
+- (void) stopButtonMethods {
     
+    //set stop time
+    
+    NSDate *stopTime = [NSDate date];
+    
+    //set time elapsed between start and stop times
+    
+    self.timeElapsed = [stopTime timeIntervalSinceDate:self.startTime];
+    self.totalTime = self.totalTime + self.timeElapsed;
+    
+    NSTimeInterval lapTimeElapsed = [stopTime timeIntervalSinceDate:self.lapStartTime];
+    self.totalLapTime = self.totalLapTime + lapTimeElapsed;
+    
+    //stop timers
+    
+    [self.lapTimer invalidate];
+    [self.stopwatchTimer invalidate];
+    
+    //pause audio and get time interval for pause
+    
+    [self.audioPlayer pause];
+    [self.audioPlayer setCurrentTime:self.timeElapsed];
+    
+    //set button text to "start"
+    
+    [self changeButtonLabel];
 }
 
 - (IBAction)lapButtonTapped:(id)sender {
@@ -158,11 +182,11 @@
     //get total time elapsed in session
     
     self.timeSession = [now timeIntervalSinceDate:self.startTime];
-    NSTimeInterval timeElapsed = self.totalTime + self.timeSession;
+    self.timeElapsed = self.totalTime + self.timeSession;
     
     //update time label
     
-    self.stopwatchLabel.text = [NSString stringWithFormat:@"%0.2f",timeElapsed];
+    self.stopwatchLabel.text = [NSString stringWithFormat:@"%0.2f",self.timeElapsed];
 }
 
 -(void) lapTimerFiring:(NSTimer *)timer {
@@ -174,11 +198,11 @@
     //get total time elapsed in lap session
     
     NSTimeInterval lapSession = [now timeIntervalSinceDate:self.lapStartTime];
-    NSTimeInterval timeElapsed = self.totalLapTime + lapSession;
+    self.timeElapsed = self.totalLapTime + lapSession;
     
     //update time label
     
-    self.lapTimeLabel.text = [NSString stringWithFormat:@"%0.2f", timeElapsed];
+    self.lapTimeLabel.text = [NSString stringWithFormat:@"%0.2f", self.timeElapsed];
     
 }
 
