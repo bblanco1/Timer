@@ -8,12 +8,19 @@
 
 #import "TimerViewController.h"
 
-@interface TimerViewController () <UITableViewDelegate ,UITableViewDataSource>
+@interface TimerViewController () <UITableViewDelegate ,UITableViewDataSource, UITextFieldDelegate>
 {
-int afterRemainder;
-int remainder;
+    int afterRemainder;
+    int remainder;
+    
 }
+
+@property (strong, nonatomic) NSMutableArray *labels;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+
+
 @end
+
 
 @implementation TimerViewController
 
@@ -30,34 +37,29 @@ int remainder;
     [super viewDidLoad];
     
     startCountDown = false;
-}
-
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    datePicker = [[UIDatePicker alloc] init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [self.dateSelctionTextField setInputView:datePicker];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Label" forIndexPath:indexPath];
-    cell.detailTextLabel.hidden = YES;
-    [[cell viewWithTag:3] removeFromSuperview];
-    UITextField *textField = [[UITextField alloc] init];
-    textField.tag = 3;
-    textField.translatesAutoresizingMaskIntoConstraints = NO;
-    [cell.contentView addSubview:textField];
-    [cell addConstraint:[NSLayoutConstraint constraintWithItem:textField attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:cell.textLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:8]];
-    [cell addConstraint:[NSLayoutConstraint constraintWithItem:textField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:8]];
-    [cell addConstraint:[NSLayoutConstraint constraintWithItem:textField attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeBottom multiplier:1 constant:-8]];
-    [cell addConstraint:[NSLayoutConstraint constraintWithItem:textField attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:cell.detailTextLabel attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
-    textField.textAlignment = NSTextAlignmentRight;
-    textField.delegate = self;
-    return cell;
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [toolBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(ShowSelectedDate)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [toolBar setItems:[NSArray arrayWithObjects:space, doneBtn, nil]];
+    self.dateSelctionTextField.inputAccessoryView = toolBar;
+    
+                              
 }
+
+- (void)ShowSelectedDate {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yy"];
+    self.dateSelctionTextField.text=[NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+    [self.dateSelctionTextField resignFirstResponder];
+    
+}
+
 
 - (void) updateCountDown {
     

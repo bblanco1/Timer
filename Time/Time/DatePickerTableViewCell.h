@@ -1,5 +1,5 @@
 //
-//  TimerTableViewCell.h
+//  DatePickerTableViewCell.h
 //  Time
 //
 //  Created by Brian Blanco on 8/29/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimerTableViewCell : UITableViewCell
+@interface DatePickerTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) UIDatePicker *datePicker;
 
 @end
