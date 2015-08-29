@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="K2T-ZY-uIU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="K2T-ZY-uIU">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -48,7 +47,6 @@
                                         </state>
                                         <connections>
                                             <action selector="startButtonTapped:" destination="9dq-zV-6bM" eventType="touchUpInside" id="yXr-aP-c0H"/>
-                                            <action selector="stopButtonTapped:" destination="9dq-zV-6bM" eventType="touchUpInside" id="Lsl-za-1IQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="net-zm-nJT">
@@ -88,7 +86,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YLM-uV-uRK">
-                                <rect key="frame" x="10" y="351" width="300" height="200"/>
+                                <rect key="frame" x="10" y="319" width="300" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="lmL-pW-UUJ"/>
@@ -124,11 +122,11 @@
                         <color key="backgroundColor" red="0.35473488910000001" green="0.59769837209999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YLM-uV-uRK" firstAttribute="leading" secondItem="Uox-f2-mSG" secondAttribute="leading" constant="10" id="FhR-Q7-BBk"/>
-                            <constraint firstItem="456-3I-zXS" firstAttribute="top" secondItem="YLM-uV-uRK" secondAttribute="bottom" constant="-32" id="G6P-jn-uFj"/>
+                            <constraint firstItem="456-3I-zXS" firstAttribute="top" secondItem="YLM-uV-uRK" secondAttribute="bottom" id="G6P-jn-uFj"/>
                             <constraint firstItem="V3m-8P-3JU" firstAttribute="width" secondItem="YLM-uV-uRK" secondAttribute="width" id="Gb3-f8-h1n"/>
                             <constraint firstAttribute="trailing" secondItem="V3m-8P-3JU" secondAttribute="trailing" constant="10" id="JIw-Xq-eW3"/>
                             <constraint firstItem="V3m-8P-3JU" firstAttribute="height" secondItem="YLM-uV-uRK" secondAttribute="height" constant="50" id="LY4-b8-54F"/>
-                            <constraint firstItem="YLM-uV-uRK" firstAttribute="top" secondItem="V3m-8P-3JU" secondAttribute="bottom" constant="122" id="Xoq-Gm-wbg"/>
+                            <constraint firstItem="YLM-uV-uRK" firstAttribute="top" secondItem="V3m-8P-3JU" secondAttribute="bottom" constant="90" id="Xoq-Gm-wbg"/>
                             <constraint firstAttribute="trailing" secondItem="YLM-uV-uRK" secondAttribute="trailing" constant="10" id="Yj2-wR-f3K"/>
                             <constraint firstAttribute="centerX" secondItem="V3m-8P-3JU" secondAttribute="centerX" id="bAY-gf-JqS"/>
                             <constraint firstItem="V3m-8P-3JU" firstAttribute="leading" secondItem="Uox-f2-mSG" secondAttribute="leading" constant="10" id="vBH-DL-c5S"/>
@@ -561,4 +559,9 @@
             <point key="canvasLocation" x="1716" y="-1297"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

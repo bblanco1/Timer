@@ -43,6 +43,9 @@
     self.lapTableview.dataSource = self;
     self.lapTableview.delegate = self;
     self.lapTimes = [[NSMutableArray alloc] init];
+    
+    self.startButton.layer.borderWidth = 2.0;
+//    self.startButton.layer.cornerRadius s
 }
 
 
@@ -80,7 +83,7 @@
     
     if (!(self.songStarted)) {
         
-        [self playSong:@"myOdds"];
+        [self playSong:@"backwards"];
         
     } else if (self.songStarted) {
         
@@ -110,11 +113,6 @@
 - (void) resumeSong {
     
     [self.audioPlayer play];
-}
-
-- (IBAction)stopButtonTapped:(id)sender {
-    
-    //empty method
 }
 
 - (void) stopButtonMethods {
@@ -246,6 +244,7 @@
         [self.lapTimes removeAllObjects];
         [self.lapTableview reloadData];
         [self.audioPlayer stop];
+        [self.audioPlayer setCurrentTime:0];
         
     }
 }
