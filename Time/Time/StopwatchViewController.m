@@ -29,9 +29,11 @@
 @property (nonatomic) NSTimeInterval timeElapsed;
 
 @property (nonatomic) AVAudioPlayer *audioPlayer;
-@property (nonatomic) NSTimeInterval songCurrentTime; //have to implement this
 @property (nonatomic) BOOL songStarted;
 
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizer;
+
+@property (nonatomic) NSArray *backgroundsArray;
 
 @end
 
@@ -289,6 +291,11 @@
         [self.lapTimes removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
+}
+
+- (IBAction)swipeGestureRecognizerSwiped:(id)sender {
+    
+    
 }
 
 

@@ -134,6 +134,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YLM-uV-uRK" firstAttribute="leading" secondItem="Uox-f2-mSG" secondAttribute="leading" constant="10" id="FhR-Q7-BBk"/>
                             <constraint firstItem="456-3I-zXS" firstAttribute="top" secondItem="YLM-uV-uRK" secondAttribute="bottom" id="G6P-jn-uFj"/>
@@ -145,6 +146,9 @@
                             <constraint firstAttribute="centerX" secondItem="V3m-8P-3JU" secondAttribute="centerX" id="bAY-gf-JqS"/>
                             <constraint firstItem="V3m-8P-3JU" firstAttribute="leading" secondItem="Uox-f2-mSG" secondAttribute="leading" constant="10" id="vBH-DL-c5S"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="oKY-CZ-3PR" appends="YES" id="6EC-iG-dzK"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="h4C-S1-viP" userLabel="Stopwatch"/>
                     <connections>
@@ -153,9 +157,15 @@
                         <outlet property="lapTimeLabel" destination="wGW-YT-1mk" id="qab-yg-W0s"/>
                         <outlet property="startButton" destination="WKb-Ai-zmf" id="tIV-cT-501"/>
                         <outlet property="stopwatchLabel" destination="d3B-yF-bTP" id="5WL-sY-mEL"/>
+                        <outlet property="swipeGestureRecognizer" destination="oKY-CZ-3PR" id="Vpg-EV-koO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9e-7D-LKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="oKY-CZ-3PR">
+                    <connections>
+                        <action selector="swipeGestureRecognizerSwiped:" destination="9dq-zV-6bM" id="gjh-2z-oXp"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="408" y="38"/>
         </scene>
@@ -363,41 +373,11 @@
                     <connections>
                         <segue destination="2xg-iC-63h" kind="relationship" relationship="viewControllers" id="VGp-ys-uUJ"/>
                         <segue destination="9dq-zV-6bM" kind="relationship" relationship="viewControllers" id="fSp-3q-jat"/>
-                        <segue destination="qvz-sd-6lx" kind="relationship" relationship="viewControllers" id="iIi-yO-dBr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdc-dY-cQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-18" y="38"/>
-        </scene>
-        <!--SettingsTableViewController-->
-        <scene sceneID="Ptn-UG-hPy">
-            <objects>
-                <tableViewController id="qvz-sd-6lx" userLabel="SettingsTableViewController" customClass="SettingsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="szw-DK-Fpb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="Ya3-OV-OoN">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ya3-OV-OoN" id="M53-XQ-OwO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qvz-sd-6lx" id="cKV-H9-pxi"/>
-                            <outlet property="delegate" destination="qvz-sd-6lx" id="kGc-ZN-Bgh"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="MzL-EA-ixu" userLabel="settings"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5G-Va-TD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="408" y="746"/>
         </scene>
         <!--Item-->
         <scene sceneID="pfm-ZX-e5w">
