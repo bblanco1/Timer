@@ -19,6 +19,7 @@
 		223B04AD1B8FF585004C0371 /* isometric.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A61B8FF585004C0371 /* isometric.mp3 */; };
 		223B04AE1B8FF585004C0371 /* myOdds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A71B8FF585004C0371 /* myOdds.mp3 */; };
 		223B04AF1B8FF585004C0371 /* time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A81B8FF585004C0371 /* time.mp3 */; };
+		5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
 		8D0537611B86687C00588318 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0537601B86687C00588318 /* AppDelegate.m */; };
 		8D0537671B86687C00588318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0537651B86687C00588318 /* Main.storyboard */; };
@@ -54,6 +55,8 @@
 		223B04A61B8FF585004C0371 /* isometric.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = isometric.mp3; path = sounds/isometric.mp3; sourceTree = "<group>"; };
 		223B04A71B8FF585004C0371 /* myOdds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = myOdds.mp3; path = sounds/myOdds.mp3; sourceTree = "<group>"; };
 		223B04A81B8FF585004C0371 /* time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = time.mp3; path = sounds/time.mp3; sourceTree = "<group>"; };
+		5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerMainTableViewController.h; sourceTree = "<group>"; };
+		5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerMainTableViewController.m; sourceTree = "<group>"; };
 		8D0537581B86687B00588318 /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D05375C1B86687B00588318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D05375D1B86687C00588318 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				223B04981B88C624004C0371 /* StopwatchViewController.m */,
 				223B049A1B88C637004C0371 /* TimerViewController.h */,
 				223B049B1B88C637004C0371 /* TimerViewController.m */,
+				5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */,
+				5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */,
 				223B049D1B88C66D004C0371 /* SettingsTableViewController.h */,
 				223B049E1B88C66D004C0371 /* SettingsTableViewController.m */,
 				8D0537651B86687C00588318 /* Main.storyboard */,
@@ -203,7 +208,7 @@
 		8D0537501B86687B00588318 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Mike Kavouras";
 				TargetAttributes = {
 					8D0537571B86687B00588318 = {
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223B049F1B88C66D004C0371 /* SettingsTableViewController.m in Sources */,
+				5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */,
 				223B04991B88C624004C0371 /* StopwatchViewController.m in Sources */,
 				223B04931B88C5E6004C0371 /* TabBarController.m in Sources */,
 				223B049C1B88C637004C0371 /* TimerViewController.m in Sources */,
@@ -334,6 +340,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -401,6 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Time/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mikekavouras.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -411,6 +419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Time/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mikekavouras.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -429,6 +438,7 @@
 				);
 				INFOPLIST_FILE = TimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mikekavouras.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Time.app/Time";
 			};
@@ -444,6 +454,7 @@
 				);
 				INFOPLIST_FILE = TimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mikekavouras.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Time.app/Time";
 			};
