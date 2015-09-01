@@ -7,8 +7,14 @@
 //
 
 #import "TimerMainTableViewController.h"
+#import "PresetTimers.h"
+#import "Timer.h"
+#import "TimerDetailViewController.h"
+
 
 @interface TimerMainTableViewController ()
+
+@property (nonatomic) PresetTimers *model;
 
 @end
 
@@ -17,16 +23,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.model = [PresetTimers sharedInstance];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.model initializeTimers];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.destinationViewController isKindOfClass:[TimerDetailViewController class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Timer *timer = [self.model.allTimers objectAtIndex:indexPath.row];
+        NSString *timerName = timer.timerName;
+        
+        TimerDetailViewController *destination = segue.destinationViewController;
+        destination.timerName = timerName;
+        
+    }
+    
+    
 }
 
 #pragma mark - Table view data source
@@ -38,15 +58,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 4;
+    
+    return [self.model.allTimers count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"time" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timeCountDown" forIndexPath:indexPath];
     
-    // Configure the cell...
+    Timer *timer = [self.model.allTimers objectAtIndex:indexPath.row];
     
+    NSString *timerName = [timer timerName];
+    
+    cell.textLabel.text = timerName;
     
     return cell;
 }

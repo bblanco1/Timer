@@ -9,14 +9,16 @@
 int count;
 
 #import <UIKit/UIKit.h>
+#import "Timer.h"
+#import "PresetTimers.h"
 
-@interface TimerViewController : UIViewController
+@interface TimerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate>
 {
-    UIDatePicker *datePicker;
+    UIDatePicker *timerPicker;
 }
 
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
+//@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;

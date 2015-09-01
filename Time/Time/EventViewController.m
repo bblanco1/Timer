@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) NSMutableArray *labels;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (weak, nonatomic) IBOutlet UITextField *eventDescription;
 
 
 @end
@@ -133,6 +134,7 @@
 
 
 - (IBAction)doneSubmit:(UIBarButtonItem *)sender {
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
