@@ -89,7 +89,8 @@
         
     } else{
         
-
+        _countDownLabel.hidden = true;
+        _timerUserPicker.hidden = false;
         startCountDown = false;
         [startCountDownTimer invalidate];
         startCountDown = nil;
@@ -121,36 +122,6 @@
 }
 
 
-- (IBAction)doneSubmit:(UIBarButtonItem *)sender {
-    
-     if (startCountDown == false) {
-        
-        
-        countDownTimeInterval = (NSTimeInterval)_timerUserPicker.countDownDuration;
-        remainder = countDownTimeInterval;
-        afterRemainder = countDownTimeInterval - remainder%60;
-        startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-        
-        startCountDown = true;
-        
-        
-    } else{
-        
-        startCountDown = false;
-        [startCountDownTimer invalidate];
-        startCountDown = nil;
-        self.countDownLabel.text =@"00 : 00 : 00";
-        
-        
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)cancelButton:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 
 
