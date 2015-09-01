@@ -141,7 +141,9 @@
     [timer initializeTimerName:timerName];
     
     PresetTimers *shared = [PresetTimers sharedInstance];
-    [shared.allTimers addObject:timerName];
+    [shared.allTimers addObject:timer];
+    
+    NSLog(@"%@", shared.allTimers);
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

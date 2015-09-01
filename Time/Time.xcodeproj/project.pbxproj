@@ -22,6 +22,8 @@
 		5A10E5191B96170C0067DCF4 /* TimerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E5181B96170C0067DCF4 /* TimerDetailViewController.m */; };
 		5A10E51C1B9619B90067DCF4 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E51B1B9619B90067DCF4 /* Timer.m */; };
 		5A10E51F1B961A0C0067DCF4 /* PresetTimers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E51E1B961A0C0067DCF4 /* PresetTimers.m */; };
+		5A10E5241B964A6A0067DCF4 /* ChoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E5231B964A6A0067DCF4 /* ChoicesViewController.m */; };
+		5A10E5271B9653790067DCF4 /* UserTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10E5261B9653790067DCF4 /* UserTimerViewController.m */; };
 		5AAA68841B9201F7008D6FB0 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA68831B9201F7008D6FB0 /* EventViewController.m */; };
 		5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
@@ -65,6 +67,10 @@
 		5A10E51B1B9619B90067DCF4 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		5A10E51D1B961A0C0067DCF4 /* PresetTimers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresetTimers.h; sourceTree = "<group>"; };
 		5A10E51E1B961A0C0067DCF4 /* PresetTimers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresetTimers.m; sourceTree = "<group>"; };
+		5A10E5221B964A6A0067DCF4 /* ChoicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoicesViewController.h; sourceTree = "<group>"; };
+		5A10E5231B964A6A0067DCF4 /* ChoicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoicesViewController.m; sourceTree = "<group>"; };
+		5A10E5251B9653790067DCF4 /* UserTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTimerViewController.h; sourceTree = "<group>"; };
+		5A10E5261B9653790067DCF4 /* UserTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimerViewController.m; sourceTree = "<group>"; };
 		5AAA68821B9201F7008D6FB0 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		5AAA68831B9201F7008D6FB0 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerMainTableViewController.h; sourceTree = "<group>"; };
@@ -101,6 +107,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A10E5201B9645FA0067DCF4 /* Stop Watch */ = {
+			isa = PBXGroup;
+			children = (
+				223B04981B88C624004C0371 /* StopwatchViewController.m */,
+				223B04971B88C624004C0371 /* StopwatchViewController.h */,
+			);
+			name = "Stop Watch";
+			sourceTree = "<group>";
+		};
+		5A10E5211B9646180067DCF4 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				223B049A1B88C637004C0371 /* TimerViewController.h */,
+				5A10E5251B9653790067DCF4 /* UserTimerViewController.h */,
+				5A10E5261B9653790067DCF4 /* UserTimerViewController.m */,
+				223B049B1B88C637004C0371 /* TimerViewController.m */,
+				5A10E51D1B961A0C0067DCF4 /* PresetTimers.h */,
+				5A10E51E1B961A0C0067DCF4 /* PresetTimers.m */,
+				5A10E5221B964A6A0067DCF4 /* ChoicesViewController.h */,
+				5A10E5231B964A6A0067DCF4 /* ChoicesViewController.m */,
+				5A10E51A1B9619B90067DCF4 /* Timer.h */,
+				5A10E51B1B9619B90067DCF4 /* Timer.m */,
+				5A10E5171B96170C0067DCF4 /* TimerDetailViewController.h */,
+				5A10E5181B96170C0067DCF4 /* TimerDetailViewController.m */,
+				5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */,
+				5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */,
+				5AAA68821B9201F7008D6FB0 /* EventViewController.h */,
+				5AAA68831B9201F7008D6FB0 /* EventViewController.m */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
 		8D05374F1B86687B00588318 = {
 			isa = PBXGroup;
 			children = (
@@ -127,20 +165,8 @@
 				8D0537601B86687C00588318 /* AppDelegate.m */,
 				223B04911B88C5E6004C0371 /* TabBarController.h */,
 				223B04921B88C5E6004C0371 /* TabBarController.m */,
-				223B04971B88C624004C0371 /* StopwatchViewController.h */,
-				223B04981B88C624004C0371 /* StopwatchViewController.m */,
-				223B049A1B88C637004C0371 /* TimerViewController.h */,
-				223B049B1B88C637004C0371 /* TimerViewController.m */,
-				5A10E51D1B961A0C0067DCF4 /* PresetTimers.h */,
-				5A10E51E1B961A0C0067DCF4 /* PresetTimers.m */,
-				5A10E51A1B9619B90067DCF4 /* Timer.h */,
-				5A10E51B1B9619B90067DCF4 /* Timer.m */,
-				5A10E5171B96170C0067DCF4 /* TimerDetailViewController.h */,
-				5A10E5181B96170C0067DCF4 /* TimerDetailViewController.m */,
-				5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */,
-				5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */,
-				5AAA68821B9201F7008D6FB0 /* EventViewController.h */,
-				5AAA68831B9201F7008D6FB0 /* EventViewController.m */,
+				5A10E5201B9645FA0067DCF4 /* Stop Watch */,
+				5A10E5211B9646180067DCF4 /* Timer */,
 				223B049D1B88C66D004C0371 /* SettingsTableViewController.h */,
 				223B049E1B88C66D004C0371 /* SettingsTableViewController.m */,
 				8D0537651B86687C00588318 /* Main.storyboard */,
@@ -297,12 +323,14 @@
 				5A10E5191B96170C0067DCF4 /* TimerDetailViewController.m in Sources */,
 				5AAA68841B9201F7008D6FB0 /* EventViewController.m in Sources */,
 				5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */,
+				5A10E5271B9653790067DCF4 /* UserTimerViewController.m in Sources */,
 				223B04991B88C624004C0371 /* StopwatchViewController.m in Sources */,
 				223B04931B88C5E6004C0371 /* TabBarController.m in Sources */,
 				223B049C1B88C637004C0371 /* TimerViewController.m in Sources */,
 				8D0537611B86687C00588318 /* AppDelegate.m in Sources */,
 				5A10E51F1B961A0C0067DCF4 /* PresetTimers.m in Sources */,
 				8D05375E1B86687C00588318 /* main.m in Sources */,
+				5A10E5241B964A6A0067DCF4 /* ChoicesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

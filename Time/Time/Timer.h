@@ -11,6 +11,8 @@
 @interface Timer : NSObject
 
 @property (nonatomic) NSString *timerName;
+@property (nonatomic) NSTimer *startCountDownTimer;
+@property (nonatomic) NSDate *countDownFrom;
 
 -(void) initializeTimerName: (NSString *) timerName;
 @end
