@@ -32,9 +32,15 @@
 @property (nonatomic) BOOL songStarted;
 
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizer;
-@property (nonatomic) NSArray *backgroundsArray;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerMusic;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerMute;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerUnmute;
 
+@property (nonatomic) NSArray *backgroundsArray;
 @property (nonatomic) UIImageView *backgroundImageView;
+
+@property (nonatomic) NSArray *musicArray;
+@property (nonatomic) int musicHelperInt;
 
 @end
 
@@ -43,9 +49,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     self.swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.backgroundsArray = @[
                               //brownish red
@@ -61,6 +67,19 @@
                               [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1.0]
                               
                               ];
+    
+    self.musicArray = @[
+                        @"backwards",
+                        @"cantTell",
+                        @"isometric",
+                        @"hourglass",
+                        @"myOdds",
+                        @"hotline",
+                        @"cena"
+                        ];
+    
+
+
 
     self.lapTableview.dataSource = self;
     self.lapTableview.delegate = self;
@@ -117,7 +136,7 @@
     
     if (!(self.songStarted)) {
         
-        [self playSong:@"backwards"];
+        [self playSong:[self.musicArray objectAtIndex:0]];
         
     } else if (self.songStarted) {
         
@@ -125,7 +144,7 @@
     }
 }
 
-- (void) playSong: (NSString *) song {
+- (void) playSong: (NSNumber*) song {
     
     song = [NSString stringWithFormat:@"%@/" "%@" ".mp3", [[NSBundle mainBundle] resourcePath], song];
     NSURL *songUrl = [NSURL fileURLWithPath: song];
@@ -218,7 +237,13 @@
     
     //update time label
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"mm:ss:SS"];
+    
     self.stopwatchLabel.text = [NSString stringWithFormat:@"%0.2f",self.timeElapsed];
+//    self.stopwatchLabel.text = [formatter stringFromDate:now];
+    
+    
 }
 
 -(void) lapTimerFiring:(NSTimer *)timer {
@@ -346,6 +371,8 @@
         self.backgroundImageView.image = cena;
         
         [self.view insertSubview:self.backgroundImageView atIndex:0];
+        
+        [self playSong:[self.musicArray objectAtIndex:6]];
 
     } else if ([self.view.backgroundColor isEqual: [UIColor blackColor]]) {
         
@@ -353,11 +380,41 @@
 
         self.view.backgroundColor = [UIColor whiteColor];
         
-        self.stopwatchLabel.textColor = [UIColor groupTableViewBackgroundColor];
+        self.stopwatchLabel.textColor = [UIColor lightGrayColor];
         
-        self.lapTimeLabel.textColor = [UIColor groupTableViewBackgroundColor];
+        self.lapTimeLabel.textColor = [UIColor lightGrayColor];
         
     }
 }
+
+- (IBAction)swipeGestureRecognizerSwipedLeft:(id)sender {
+    
+    self.musicHelperInt = self.musicHelperInt + 1;
+    
+    if (self.musicHelperInt == 6) {
+        self.musicHelperInt = 0;
+    }
+    
+    [self changeMusic];
+}
+
+-(void) changeMusic {
+ 
+    [self.audioPlayer stop];
+    
+    [self playSong:[self.musicArray objectAtIndex:self.musicHelperInt]];
+    
+}
+
+- (IBAction)swipeGestureRecognizerSwipedDown:(id)sender {
+    
+    self.audioPlayer.volume = 0.0;
+}
+
+- (IBAction)swipeGestureRecognizerSwipedUp:(id)sender {
+    
+    self.audioPlayer.volume = 0.8;
+}
+
 
 @end

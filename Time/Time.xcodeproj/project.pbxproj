@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2209C3801B950BD4009AD0DA /* hotline.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2209C37F1B950BD4009AD0DA /* hotline.mp3 */; };
 		223B04931B88C5E6004C0371 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04921B88C5E6004C0371 /* TabBarController.m */; };
 		223B04991B88C624004C0371 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04981B88C624004C0371 /* StopwatchViewController.m */; };
 		223B049C1B88C637004C0371 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049B1B88C637004C0371 /* TimerViewController.m */; };
@@ -18,7 +19,6 @@
 		223B04AC1B8FF585004C0371 /* hourglass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A51B8FF585004C0371 /* hourglass.mp3 */; };
 		223B04AD1B8FF585004C0371 /* isometric.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A61B8FF585004C0371 /* isometric.mp3 */; };
 		223B04AE1B8FF585004C0371 /* myOdds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A71B8FF585004C0371 /* myOdds.mp3 */; };
-		223B04AF1B8FF585004C0371 /* time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A81B8FF585004C0371 /* time.mp3 */; };
 		5AAA68841B9201F7008D6FB0 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA68831B9201F7008D6FB0 /* EventViewController.m */; };
 		5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDAE1C1B9025C100AEEC61 /* TimerMainTableViewController.m */; };
 		8D05375E1B86687C00588318 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D05375D1B86687C00588318 /* main.m */; };
@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2209C37F1B950BD4009AD0DA /* hotline.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hotline.mp3; path = sounds/hotline.mp3; sourceTree = "<group>"; };
 		223B04911B88C5E6004C0371 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		223B04921B88C5E6004C0371 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		223B04971B88C624004C0371 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		223B04A51B8FF585004C0371 /* hourglass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hourglass.mp3; path = sounds/hourglass.mp3; sourceTree = "<group>"; };
 		223B04A61B8FF585004C0371 /* isometric.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = isometric.mp3; path = sounds/isometric.mp3; sourceTree = "<group>"; };
 		223B04A71B8FF585004C0371 /* myOdds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = myOdds.mp3; path = sounds/myOdds.mp3; sourceTree = "<group>"; };
-		223B04A81B8FF585004C0371 /* time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = time.mp3; path = sounds/time.mp3; sourceTree = "<group>"; };
 		5AAA68821B9201F7008D6FB0 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		5AAA68831B9201F7008D6FB0 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		5ACDAE1B1B9025C100AEEC61 /* TimerMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerMainTableViewController.h; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				223B04A61B8FF585004C0371 /* isometric.mp3 */,
 				223B04A51B8FF585004C0371 /* hourglass.mp3 */,
 				223B04A71B8FF585004C0371 /* myOdds.mp3 */,
-				223B04A81B8FF585004C0371 /* time.mp3 */,
+				2209C37F1B950BD4009AD0DA /* hotline.mp3 */,
 				8D05375C1B86687B00588318 /* Info.plist */,
 				8D05375D1B86687C00588318 /* main.m */,
 			);
@@ -218,6 +218,7 @@
 				TargetAttributes = {
 					8D0537571B86687B00588318 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = N2DCZ2U592;
 					};
 					8D0537701B86687C00588318 = {
 						CreatedOnToolsVersion = 6.4;
@@ -250,10 +251,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D0537671B86687C00588318 /* Main.storyboard in Resources */,
-				223B04AF1B8FF585004C0371 /* time.mp3 in Resources */,
 				223B04A91B8FF585004C0371 /* backwards.mp3 in Resources */,
 				223B04AD1B8FF585004C0371 /* isometric.mp3 in Resources */,
 				223B04AC1B8FF585004C0371 /* hourglass.mp3 in Resources */,
+				2209C3801B950BD4009AD0DA /* hotline.mp3 in Resources */,
 				8D05376C1B86687C00588318 /* LaunchScreen.xib in Resources */,
 				223B04AE1B8FF585004C0371 /* myOdds.mp3 in Resources */,
 				8D0537691B86687C00588318 /* Images.xcassets in Resources */,
@@ -412,10 +413,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Time/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mikekavouras.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -423,10 +428,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Time/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mikekavouras.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
