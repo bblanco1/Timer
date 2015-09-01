@@ -77,9 +77,6 @@
                         @"hotline",
                         @"cena"
                         ];
-    
-
-
 
     self.lapTableview.dataSource = self;
     self.lapTableview.delegate = self;
@@ -241,6 +238,7 @@
     [formatter setDateFormat:@"mm:ss:SS"];
     
     self.stopwatchLabel.text = [NSString stringWithFormat:@"%0.2f",self.timeElapsed];
+    
 //    self.stopwatchLabel.text = [formatter stringFromDate:now];
     
     
