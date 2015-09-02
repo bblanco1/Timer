@@ -21,6 +21,8 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -549,48 +551,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGv-dm-T1z">
-                                <rect key="frame" x="20" y="273" width="280" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8u-JW-Ejg">
+                                <rect key="frame" x="50" y="422" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="0UT-6g-Atc"/>
+                                    <constraint firstAttribute="height" constant="80" id="738-yJ-W4p"/>
+                                    <constraint firstAttribute="width" constant="80" id="AL2-uB-iU2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8u-JW-Ejg">
-                                <rect key="frame" x="78" y="421" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startButtonTapped:" destination="emc-Wd-GSM" eventType="touchUpInside" id="L7a-vd-mrS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbU-qh-5dD">
-                                <rect key="frame" x="195" y="421" width="57" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbU-qh-5dD">
+                                <rect key="frame" x="190" y="422" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Pause"/>
                                 <connections>
                                     <action selector="pauseButtonTapped:" destination="emc-Wd-GSM" eventType="touchUpInside" id="tT9-xB-g6E"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lR0-66-zuA">
-                                <rect key="frame" x="0.0" y="28" width="320" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lR0-66-zuA">
+                                <rect key="frame" x="3" y="82" width="314" height="162"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <date key="date" timeIntervalSinceReferenceDate="462837160.06868702">
                                     <!--2015-09-01 21:52:40 +0000-->
                                 </date>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGv-dm-T1z">
+                                <rect key="frame" x="5.5" y="273" width="310.5" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="0UT-6g-Atc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="62"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="C8u-JW-Ejg" firstAttribute="width" secondItem="HbU-qh-5dD" secondAttribute="width" id="5Oc-5G-yOe"/>
                             <constraint firstItem="KGv-dm-T1z" firstAttribute="top" secondItem="lR0-66-zuA" secondAttribute="bottom" constant="29" id="7fF-Hh-Ix4"/>
-                            <constraint firstItem="KGv-dm-T1z" firstAttribute="leading" secondItem="rIv-jt-vTr" secondAttribute="leadingMargin" id="8zH-8s-prh"/>
+                            <constraint firstItem="C8u-JW-Ejg" firstAttribute="leading" secondItem="rIv-jt-vTr" secondAttribute="leading" constant="50" id="8AN-vi-GS3"/>
+                            <constraint firstItem="HbU-qh-5dD" firstAttribute="top" secondItem="KGv-dm-T1z" secondAttribute="bottom" constant="75" id="Lyy-vY-iHh"/>
                             <constraint firstItem="KGv-dm-T1z" firstAttribute="top" secondItem="rIv-jt-vTr" secondAttribute="top" constant="273" id="Qay-uQ-a7S"/>
-                            <constraint firstItem="KGv-dm-T1z" firstAttribute="trailing" secondItem="rIv-jt-vTr" secondAttribute="trailingMargin" id="WqC-PK-qzj"/>
-                            <constraint firstItem="KGv-dm-T1z" firstAttribute="centerX" secondItem="lR0-66-zuA" secondAttribute="centerX" id="paG-CS-ZK3"/>
+                            <constraint firstAttribute="trailing" secondItem="lR0-66-zuA" secondAttribute="trailing" constant="3" id="cpS-b5-S1y"/>
+                            <constraint firstItem="lR0-66-zuA" firstAttribute="leading" secondItem="rIv-jt-vTr" secondAttribute="leading" constant="3" id="cwH-ve-slM"/>
+                            <constraint firstAttribute="trailing" secondItem="HbU-qh-5dD" secondAttribute="trailing" constant="50" id="kbA-GN-JXL"/>
+                            <constraint firstItem="C8u-JW-Ejg" firstAttribute="height" secondItem="HbU-qh-5dD" secondAttribute="height" id="oaY-gH-axu"/>
+                            <constraint firstAttribute="centerX" secondItem="KGv-dm-T1z" secondAttribute="centerX" id="wXS-bK-z9G"/>
+                            <constraint firstItem="C8u-JW-Ejg" firstAttribute="top" secondItem="KGv-dm-T1z" secondAttribute="bottom" constant="75" id="z6o-h3-nX1"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Time" id="BfU-UP-dcy" userLabel="Timer"/>
                     <connections>
                         <outlet property="countDownLabel" destination="KGv-dm-T1z" id="EtD-hO-fIq"/>
+                        <outlet property="pauseButton" destination="HbU-qh-5dD" id="d1G-lh-tFF"/>
+                        <outlet property="startButton" destination="C8u-JW-Ejg" id="bfp-KG-oGh"/>
                         <outlet property="timerUserPicker" destination="lR0-66-zuA" id="9UO-1x-dj8"/>
                     </connections>
                 </viewController>

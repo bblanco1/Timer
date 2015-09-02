@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) NSMutableArray *labels;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 
 @end
@@ -38,7 +40,20 @@
     
     startCountDown = false;
   
+    self.startButton.layer.borderWidth = 1.0;
+    self.startButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.startButton.layer.cornerRadius = self.startButton.bounds.size.width/2;
+    [self.startButton setClipsToBounds:YES];
     
+    self.pauseButton.layer.borderWidth = 1.0;
+    self.pauseButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.pauseButton.layer.cornerRadius = self.pauseButton.bounds.size.width/2;
+    [self.pauseButton setClipsToBounds:YES];
+
+    
+    self.timerUserPicker.layer.borderWidth = 1.0;
+    self.timerUserPicker.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.timerUserPicker.layer.cornerRadius = 10.0;
     
 }
 

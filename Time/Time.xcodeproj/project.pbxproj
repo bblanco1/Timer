@@ -11,7 +11,6 @@
 		223B04931B88C5E6004C0371 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04921B88C5E6004C0371 /* TabBarController.m */; };
 		223B04991B88C624004C0371 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04981B88C624004C0371 /* StopwatchViewController.m */; };
 		223B049C1B88C637004C0371 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049B1B88C637004C0371 /* TimerViewController.m */; };
-		223B049F1B88C66D004C0371 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049E1B88C66D004C0371 /* SettingsTableViewController.m */; };
 		223B04A11B8FE7A6004C0371 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223B04A01B8FE7A6004C0371 /* AVFoundation.framework */; };
 		223B04A91B8FF585004C0371 /* backwards.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A21B8FF585004C0371 /* backwards.mp3 */; };
 		223B04AA1B8FF585004C0371 /* cantTell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 223B04A31B8FF585004C0371 /* cantTell.mp3 */; };
@@ -52,8 +51,6 @@
 		223B04981B88C624004C0371 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
 		223B049A1B88C637004C0371 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		223B049B1B88C637004C0371 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
-		223B049D1B88C66D004C0371 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
-		223B049E1B88C66D004C0371 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		223B04A01B8FE7A6004C0371 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		223B04A21B8FF585004C0371 /* backwards.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = backwards.mp3; path = sounds/backwards.mp3; sourceTree = "<group>"; };
 		223B04A31B8FF585004C0371 /* cantTell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cantTell.mp3; path = sounds/cantTell.mp3; sourceTree = "<group>"; };
@@ -167,8 +164,6 @@
 				223B04921B88C5E6004C0371 /* TabBarController.m */,
 				5A10E5201B9645FA0067DCF4 /* Stop Watch */,
 				5A10E5211B9646180067DCF4 /* Timer */,
-				223B049D1B88C66D004C0371 /* SettingsTableViewController.h */,
-				223B049E1B88C66D004C0371 /* SettingsTableViewController.m */,
 				8D0537651B86687C00588318 /* Main.storyboard */,
 				8D0537681B86687C00588318 /* Images.xcassets */,
 				8D05376A1B86687C00588318 /* LaunchScreen.xib */,
@@ -319,7 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A10E51C1B9619B90067DCF4 /* Timer.m in Sources */,
-				223B049F1B88C66D004C0371 /* SettingsTableViewController.m in Sources */,
 				5A10E5191B96170C0067DCF4 /* TimerDetailViewController.m in Sources */,
 				5AAA68841B9201F7008D6FB0 /* EventViewController.m in Sources */,
 				5ACDAE1D1B9025C100AEEC61 /* TimerMainTableViewController.m in Sources */,
