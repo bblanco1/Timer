@@ -214,7 +214,7 @@
                             <outlet property="delegate" destination="Qyf-QE-0b4" id="YKU-Vm-Yo2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Orgnanize" id="O37-ZK-ieJ">
+                    <navigationItem key="navigationItem" title="Events " id="O37-ZK-ieJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OzW-Ep-HRz">
                             <connections>
                                 <segue destination="2MD-sv-P5N" kind="push" id="Lbl-0V-EA0"/>
