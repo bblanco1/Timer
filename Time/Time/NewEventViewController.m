@@ -6,9 +6,9 @@
 //  Copyright © 2015 Mike Kavouras. All rights reserved.
 //
 
-#import "EventViewController.h" 
+#import "NewEventViewController.h" 
 
-@interface EventViewController() <UITextFieldDelegate>
+@interface NewEventViewController() <UITextFieldDelegate>
 {
     int afterRemainder;
     int remainder;
@@ -23,7 +23,7 @@
 @end
 
 
-@implementation EventViewController
+@implementation NewEventViewController
 
 {
     BOOL start;
@@ -38,9 +38,9 @@
     [super viewDidLoad];
     
     startCountDown = false;
-    datePicker = [[UIDatePicker alloc] init];
-    datePicker.datePickerMode = UIDatePickerModeDateAndTime;
-    [self.dateSelctionTextField setInputView:datePicker];
+    timerPicker = [[UIDatePicker alloc] init];
+    timerPicker.datePickerMode = UIDatePickerModeDateAndTime;
+    [self.dateSelctionTextField setInputView:timerPicker];
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     [toolBar setTintColor:[UIColor grayColor]];
@@ -55,8 +55,8 @@
 - (void)ShowSelectedDate {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd/yy 'at' hh:mm:ss a"];
-    self.dateSelctionTextField.text=[NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+    [formatter setDateFormat:@"d 'Days' hh 'Hours' mm 'Minutes'"];
+    self.dateSelctionTextField.text=[NSString stringWithFormat:@"%@", [formatter stringFromDate:timerPicker.date]];
     [self.dateSelctionTextField resignFirstResponder];
     
 }
@@ -76,7 +76,7 @@
     if (afterRemainder == 0) {
         
         _countdownLabel.hidden = true;
-        _timerPicker.hidden = false;
+        timerPicker.hidden = false;
         [startCountDownTimer invalidate];
         startCountDownTimer = nil;
         self.countdownLabel.text = @"00 : 00 : 00";
@@ -90,8 +90,8 @@
     if (startCountDown == false) {
         
         _countdownLabel.hidden = false;
-        _timerPicker.hidden = true;
-        countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
+        
+        countDownTimeInterval = (NSTimeInterval)timerPicker.countDownDuration;
         remainder = countDownTimeInterval;
         afterRemainder = countDownTimeInterval - remainder%60;
         startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
@@ -102,7 +102,7 @@
         
     } else{
         _countdownLabel.hidden = true;
-        _timerPicker.hidden = false;
+        
         startCountDown = false;
         [startCountDownTimer invalidate];
         startCountDown = nil;
@@ -121,7 +121,7 @@
         startCountDown = false;
         
     } else if  (startCountDown == false){
-        countDownTimeInterval = (NSTimeInterval)_timerPicker.countDownDuration;
+        countDownTimeInterval = (NSTimeInterval)timerPicker.countDownDuration;
         remainder = countDownTimeInterval;
         afterRemainder = countDownTimeInterval - remainder%60;
         startCountDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
@@ -135,6 +135,15 @@
 
 - (IBAction)doneSubmit:(UIBarButtonItem *)sender {
     
+    Events *event = [[Events alloc] init];
+    NSString *eventName = self.eventDescription.text;
+    
+    [event initializeEventName:eventName];
+    
+    PresetEvents *shared = [PresetEvents sharedInstance];
+    [shared.allEvents addObject:event];
+    
+    NSLog(@"%@", shared.allEvents);
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -143,6 +152,7 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 
 

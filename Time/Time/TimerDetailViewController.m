@@ -2,17 +2,13 @@
 //  TimerDetailViewController.m
 //  Time
 //
-//  Created by Brian Blanco on 9/1/15.
+//  Created by Brian Blanco on 9/2/15.
 //  Copyright © 2015 Mike Kavouras. All rights reserved.
 //
 
 #import "TimerDetailViewController.h"
 
-
 @interface TimerDetailViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *timeNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeCountDownLabel;
-
 
 @end
 
@@ -20,9 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.timeNameLabel.text = self.timerName;
-    
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

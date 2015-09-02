@@ -1,19 +1,19 @@
 //
-//  Time.h
+//  Events.h
 //  Time
 //
-//  Created by Brian Blanco on 9/1/15.
+//  Created by Brian Blanco on 9/2/15.
 //  Copyright © 2015 Mike Kavouras. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface Timer : NSObject
+@interface Events : NSObject
 
-@property (nonatomic) NSString *timerName;
+@property (nonatomic) NSString *eventName;
 @property (nonatomic) NSTimer *startCountDownTimer;
 @property (nonatomic) NSDate *countDownFrom;
 
--(void) initializeTimerName: (NSString *) timerName;
+-(void) initializeEventName: (NSString *) eventName;
 
 @end

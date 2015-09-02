@@ -1,23 +1,28 @@
 //
-//  ChoicesViewController.m
+//  TimerDetailViewController.m
 //  Time
 //
 //  Created by Brian Blanco on 9/1/15.
 //  Copyright © 2015 Mike Kavouras. All rights reserved.
 //
 
-#import "ChoicesViewController.h"
-//#import "TimerViewController.h"
+#import "EventsDetailViewController.h"
 
-@interface ChoicesViewController () <UINavigationControllerDelegate>
+
+@interface EventsDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+
+
 
 @end
 
-@implementation ChoicesViewController
+@implementation EventsDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.eventNameLabel.text = self.eventName;
+    
 }
 
 - (void)didReceiveMemoryWarning {

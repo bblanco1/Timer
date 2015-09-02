@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimerMainTableViewController : UITableViewController
+@interface EventsMainTableViewController : UITableViewController
 
 @end

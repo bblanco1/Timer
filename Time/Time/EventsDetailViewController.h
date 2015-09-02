@@ -1,5 +1,5 @@
 //
-//  ChoicesViewController.h
+//  TimerDetailViewController.h
 //  Time
 //
 //  Created by Brian Blanco on 9/1/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChoicesViewController : UIViewController
+@interface EventsDetailViewController : UIViewController
+
+@property (nonatomic) NSString *eventName;
 
 @end

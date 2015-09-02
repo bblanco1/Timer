@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Mike Kavouras. All rights reserved.
 //
 
-#import "TimerViewController.h"
+#import "NewTimerViewController.h"
 
-@interface TimerViewController ()  <UITextFieldDelegate>
+@interface NewTimerViewController ()  <UITextFieldDelegate>
 {
     int afterRemainder;
     int remainder;
@@ -23,7 +23,7 @@
 @end
 
 
-@implementation TimerViewController
+@implementation NewTimerViewController
 
 {
     BOOL start;

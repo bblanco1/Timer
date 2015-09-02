@@ -7,18 +7,23 @@
 //
 
 #import "UserTimerViewController.h"
+#import "PresetTimers.h"
+#import "Timer.h"
+#import "TimerDetailViewController.h"
 
-@interface UserTimerViewController ()  <UITextFieldDelegate>
+@interface UserTimerViewController ()  <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     int afterRemainder;
     int remainder;
     
 }
 
+@property (nonatomic) PresetTimers *model;
 @property (strong, nonatomic) NSMutableArray *labels;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UITableView *timerPresetTableView;
 
 
 @end
@@ -38,7 +43,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.model = [PresetTimers sharedInstance];
+    [self.model initializeTimers];
+    
     startCountDown = false;
+    self.countDownLabel.hidden = true;
   
     self.startButton.layer.borderWidth = 1.0;
     self.startButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -57,11 +66,50 @@
     
 }
 
-- (void)ShowSelectedDate {
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [self.timerPresetTableView reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.destinationViewController isKindOfClass:[TimerDetailViewController class]]) {
+        NSIndexPath *indexPath = [self.timerPresetTableView indexPathForSelectedRow];
+        Timer *timer = [self.model.allTimers objectAtIndex:indexPath.row];
+        NSString *timerName = timer.timerName;
+        
+        TimerDetailViewController *destination = segue.destinationViewController;
+        destination.timerName = timerName;
+        
+    }
     
     
 }
 
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    
+    return [self.model.allTimers count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timerCell" forIndexPath:indexPath];
+    
+    Timer *timer = [self.model.allTimers objectAtIndex:indexPath.row];
+    
+    NSString *timerName = [timer timerName];
+    
+    cell.textLabel.text = timerName;
+    
+    return cell;
+}
 
 - (void) updateCountDown {
     

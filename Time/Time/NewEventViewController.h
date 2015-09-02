@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Events.h"
+#import "PresetEvents.h"
 
-@interface EventViewController : UIViewController
+@interface NewEventViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate>
 {
-    UIDatePicker *datePicker;
+    UIDatePicker *timerPicker;
 }
 
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
+
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;

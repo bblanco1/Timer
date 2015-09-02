@@ -12,7 +12,8 @@ int count;
 #import "Timer.h"
 #import "PresetTimers.h"
 
-@interface TimerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate>
+@interface NewTimerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate>
+
 {
     UIDatePicker *timerPicker;
 }
