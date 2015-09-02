@@ -213,7 +213,7 @@
                             <outlet property="delegate" destination="Qyf-QE-0b4" id="YKU-Vm-Yo2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Orgnanize" id="O37-ZK-ieJ">
+                    <navigationItem key="navigationItem" title="Events " id="O37-ZK-ieJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OzW-Ep-HRz">
                             <connections>
                                 <segue destination="2MD-sv-P5N" kind="push" id="Lbl-0V-EA0"/>
@@ -402,11 +402,11 @@
             </objects>
             <point key="canvasLocation" x="-18" y="38"/>
         </scene>
-        <!--Item-->
+        <!--Events-->
         <scene sceneID="pfm-ZX-e5w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2xg-iC-63h" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KpE-c0-jDi"/>
+                    <tabBarItem key="tabBarItem" title="Events" id="KpE-c0-jDi" userLabel="Events"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cf2-Ta-Ppe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -498,11 +498,11 @@
             </objects>
             <point key="canvasLocation" x="2248" y="-1297"/>
         </scene>
-        <!--Item 1-->
+        <!--Timer-->
         <scene sceneID="dnm-X4-E3k">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0TU-uT-5aK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="9Nm-fK-dmi" userLabel="Timers"/>
+                    <tabBarItem key="tabBarItem" title="Timer" id="9Nm-fK-dmi" userLabel="Timers"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CLu-GP-2hp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -588,7 +588,7 @@
                             <constraint firstItem="KGv-dm-T1z" firstAttribute="centerX" secondItem="lR0-66-zuA" secondAttribute="centerX" id="paG-CS-ZK3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="BfU-UP-dcy"/>
+                    <tabBarItem key="tabBarItem" title="Time" id="BfU-UP-dcy" userLabel="Timer"/>
                     <connections>
                         <outlet property="countDownLabel" destination="KGv-dm-T1z" id="EtD-hO-fIq"/>
                         <outlet property="timerUserPicker" destination="lR0-66-zuA" id="9UO-1x-dj8"/>
