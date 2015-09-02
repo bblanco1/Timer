@@ -565,12 +565,6 @@
                                     <action selector="startButtonTapped:" destination="emc-Wd-GSM" eventType="touchUpInside" id="L7a-vd-mrS"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lR0-66-zuA">
-                                <rect key="frame" x="0.0" y="28" width="320" height="216"/>
-                                <date key="date" timeIntervalSinceReferenceDate="462837160.06868702">
-                                    <!--2015-09-01 21:52:40 +0000-->
-                                </date>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbU-qh-5dD">
                                 <rect key="frame" x="195" y="421" width="57" height="29"/>
                                 <state key="normal" title="Pause"/>
@@ -578,6 +572,12 @@
                                     <action selector="pauseButtonTapped:" destination="emc-Wd-GSM" eventType="touchUpInside" id="tT9-xB-g6E"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lR0-66-zuA">
+                                <rect key="frame" x="0.0" y="28" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="462837160.06868702">
+                                    <!--2015-09-01 21:52:40 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
