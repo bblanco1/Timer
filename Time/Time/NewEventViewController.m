@@ -138,7 +138,7 @@
     
     Events *event = [[Events alloc] init];
     NSString *eventName = self.eventDescription.text;
-    NSString *timeDisplay = timeDisplay;
+    NSString *timeDisplay = self.dateSelctionTextField.text;
     
     [event initializeEventName:eventName eventCountDownDisplay:timeDisplay];
     
