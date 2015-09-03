@@ -26,19 +26,10 @@
 
 @implementation NewTimerViewController
 
-{
-    BOOL start;
-    //NSTimer time;
-    NSTimeInterval countDownTimeInterval;
-    NSTimer *startCountDownTimer;
-    NSDate *pauseStart, *previousFireTime;
-    BOOL startCountDown;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    startCountDown = false;
     timerPicker = [[UIDatePicker alloc] init];
     timerPicker.datePickerMode = UIDatePickerModeCountDownTimer;
     [self.dateSelctionTextField setInputView:timerPicker];

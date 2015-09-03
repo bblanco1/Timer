@@ -19,9 +19,7 @@ int count;
 }
 
 
-//@property (weak, nonatomic) IBOutlet UIDatePicker *timerPicker;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dateSelctionTextField;
