@@ -12,6 +12,7 @@
 {
     int afterRemainder;
     int remainder;
+    NSString *timeDisplay;
     
 }
 
@@ -69,7 +70,7 @@
     int hours = (int)(afterRemainder/(60*60));
     int mins = (int)(((int)afterRemainder/60) - (hours * 60));
     int secs = (int)(((int)afterRemainder - (60 *mins) - (60 * hours * 60)));
-    NSString *timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
+    timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
     
     self.countdownLabel.text = timeDisplay;
     
@@ -138,7 +139,7 @@
     Events *event = [[Events alloc] init];
     NSString *eventName = self.eventDescription.text;
     
-    [event initializeEventName:eventName];
+    [event initializeEventName:eventName eventCountDownDisplay:timeDisplay];
     
     PresetEvents *shared = [PresetEvents sharedInstance];
     [shared.allEvents addObject:event];

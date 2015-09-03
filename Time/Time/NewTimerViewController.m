@@ -12,6 +12,7 @@
 {
     int afterRemainder;
     int remainder;
+    NSString *timeDisplay;
     
 }
 
@@ -69,9 +70,10 @@
     int hours = (int)(afterRemainder/(60*60));
     int mins = (int)(((int)afterRemainder/60) - (hours * 60));
     int secs = (int)(((int)afterRemainder - (60 *mins) - (60 * hours * 60)));
-    NSString *timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
+    timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
     
     self.countdownLabel.text = timeDisplay;
+    NSLog(@"%@", timeDisplay);
     
     if (afterRemainder == 0) {
         
@@ -138,7 +140,7 @@
     Timer *timer = [[Timer alloc] init];
     NSString *timerName = self.timerDescription.text;
     
-    [timer initializeTimerName:timerName];
+    [timer initializeTimerName:timerName timerCountDownDisplay:timeDisplay];
     
     PresetTimers *shared = [PresetTimers sharedInstance];
     [shared.allTimers addObject:timer];

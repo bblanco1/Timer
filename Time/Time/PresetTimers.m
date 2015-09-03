@@ -27,19 +27,19 @@
     
     Timer *popCorn = [[Timer alloc] init];
     
-    [popCorn initializeTimerName:@"Popcorn Countdown!"];
+    [popCorn initializeTimerName:@"Popcorn Countdown!" timerCountDownDisplay:@""];
     
     [self.allTimers addObject:popCorn];
     
     Timer *laundryWash = [[Timer alloc] init];
     
-    [laundryWash initializeTimerName:@"Laundry Wash Cycle"];
+    [laundryWash initializeTimerName:@"Laundry Wash Cycle" timerCountDownDisplay:@""];
     
     [self.allTimers addObject:laundryWash];
     
     Timer *laundryDry = [[Timer alloc] init];
     
-    [laundryDry initializeTimerName:@"Laundry Drying"];
+    [laundryDry initializeTimerName:@"Laundry Drying" timerCountDownDisplay:@""];
     [self.allTimers addObject:laundryDry];
     
 }

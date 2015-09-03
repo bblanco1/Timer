@@ -10,9 +10,10 @@
 
 @implementation Timer
 
--(void) initializeTimerName: (NSString *) timerName {
+-(void) initializeTimerName: (NSString *) timerName timerCountDownDisplay: (NSString *)timeDisplay{
     
     self.timerName = timerName;
+    self.timeDisplay = timeDisplay;
 }
 
 @end

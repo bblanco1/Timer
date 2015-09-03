@@ -11,6 +11,7 @@
 
 @interface EventsDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventCountDownDisplay;
 
 
 
@@ -21,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.eventNameLabel.text = self.eventName;
     
 }
 

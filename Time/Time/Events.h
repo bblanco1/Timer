@@ -11,9 +11,8 @@
 @interface Events : NSObject
 
 @property (nonatomic) NSString *eventName;
-@property (nonatomic) NSTimer *startCountDownTimer;
-@property (nonatomic) NSDate *countDownFrom;
+@property (nonatomic) NSString *timeDisplay;
 
--(void) initializeEventName: (NSString *) eventName;
+-(void) initializeEventName: (NSString *) eventName eventCountDownDisplay: (NSString *)timeDisplay;
 
 @end

@@ -20,6 +20,7 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -242,6 +243,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UX0-mw-87N">
+                                <rect key="frame" x="20" y="211" width="280" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -252,6 +259,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AKg-pj-Zzi"/>
                     <connections>
+                        <outlet property="eventCoundDownDisplay" destination="UX0-mw-87N" id="oYu-fh-fFQ"/>
                         <outlet property="eventNameLabel" destination="qIf-ur-Bwc" id="7Lm-Ki-9DO"/>
                     </connections>
                 </viewController>
@@ -297,12 +305,12 @@
                                     <action selector="pauseButtonTapped:" destination="LG5-jp-sCJ" eventType="touchUpInside" id="GZw-RA-U0v"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Timer Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-hG-35b">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Timer Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-hG-35b">
                                 <rect key="frame" x="20" y="115" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-PR-il4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-PR-il4">
                                 <rect key="frame" x="20" y="173" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -312,6 +320,13 @@
                         <constraints>
                             <constraint firstItem="3aP-kG-ahW" firstAttribute="centerX" secondItem="Pqu-39-SNq" secondAttribute="centerX" id="3jU-3v-6KJ"/>
                             <constraint firstItem="3aP-kG-ahW" firstAttribute="centerY" secondItem="Pqu-39-SNq" secondAttribute="centerY" id="LJh-Aa-moA"/>
+                            <constraint firstItem="dL2-hG-35b" firstAttribute="leading" secondItem="Pqu-39-SNq" secondAttribute="leadingMargin" id="V4F-Fx-LR1"/>
+                            <constraint firstItem="dL2-hG-35b" firstAttribute="trailing" secondItem="Pqu-39-SNq" secondAttribute="trailingMargin" id="V6R-6a-DBz"/>
+                            <constraint firstItem="dL2-hG-35b" firstAttribute="centerX" secondItem="Pqu-39-SNq" secondAttribute="centerX" id="Vl1-xl-f9Y"/>
+                            <constraint firstItem="dL2-hG-35b" firstAttribute="top" secondItem="3m8-kM-0ml" secondAttribute="bottom" constant="51" id="Xxh-IC-mV1"/>
+                            <constraint firstItem="aYr-PR-il4" firstAttribute="trailing" secondItem="Pqu-39-SNq" secondAttribute="trailingMargin" id="mwb-Af-DsF"/>
+                            <constraint firstItem="aYr-PR-il4" firstAttribute="top" secondItem="dL2-hG-35b" secondAttribute="bottom" constant="28" id="qkp-gX-zRN"/>
+                            <constraint firstItem="aYr-PR-il4" firstAttribute="leading" secondItem="Pqu-39-SNq" secondAttribute="leadingMargin" id="tpK-89-mKe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Timer" id="8Oa-Hi-RAQ">
@@ -377,10 +392,10 @@
             </objects>
             <point key="canvasLocation" x="419" y="-646"/>
         </scene>
-        <!--View Controller-->
+        <!--Events Detail View Controller-->
         <scene sceneID="7sV-lE-CBE">
             <objects>
-                <viewController id="bqY-m4-S90" sceneMemberID="viewController">
+                <viewController id="bqY-m4-S90" customClass="EventsDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VlS-vD-Q8N"/>
                         <viewControllerLayoutGuide type="bottom" id="Nzq-DS-OWb"/>
@@ -389,16 +404,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-ot-9va">
-                                <rect key="frame" x="20" y="97" width="234" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-ot-9va">
+                                <rect key="frame" x="43" y="95" width="234" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="RUT-QL-rEa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztz-ON-rvW">
+                                <rect key="frame" x="43" y="263" width="234" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="SKV-aw-h07"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OS1-ot-9va" firstAttribute="centerX" secondItem="3ZI-sT-o4O" secondAttribute="centerX" id="2Hf-75-zbd"/>
+                            <constraint firstItem="OS1-ot-9va" firstAttribute="top" secondItem="VlS-vD-Q8N" secondAttribute="bottom" constant="31" id="Hv0-sB-ozh"/>
+                            <constraint firstItem="OS1-ot-9va" firstAttribute="leading" secondItem="3ZI-sT-o4O" secondAttribute="leadingMargin" constant="27" id="O7J-P7-W4P"/>
+                            <constraint firstItem="ztz-ON-rvW" firstAttribute="trailing" secondItem="OS1-ot-9va" secondAttribute="trailing" id="ca9-qe-bfW"/>
+                            <constraint firstItem="ztz-ON-rvW" firstAttribute="leading" secondItem="OS1-ot-9va" secondAttribute="leading" id="hk0-9X-iCn"/>
+                            <constraint firstItem="Nzq-DS-OWb" firstAttribute="top" secondItem="ztz-ON-rvW" secondAttribute="bottom" constant="202" id="mnT-n9-CVu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cbD-AZ-Qw2"/>
+                    <connections>
+                        <outlet property="eventCountDownDisplay" destination="ztz-ON-rvW" id="AiB-Wu-9ui"/>
+                        <outlet property="eventNameLabel" destination="OS1-ot-9va" id="bby-cg-iJs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh2-qv-xyn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -581,18 +620,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6a-Vm-oQD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6a-Vm-oQD">
                                 <rect key="frame" x="20" y="115" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Date &amp; Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hca-2b-gjz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Date &amp; Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hca-2b-gjz">
                                 <rect key="frame" x="20" y="173" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l6a-Vm-oQD" firstAttribute="leading" secondItem="L53-hj-3yh" secondAttribute="leadingMargin" id="2qJ-GS-jeI"/>
+                            <constraint firstItem="Hca-2b-gjz" firstAttribute="trailing" secondItem="L53-hj-3yh" secondAttribute="trailingMargin" id="TUB-rC-BdM"/>
+                            <constraint firstItem="Hca-2b-gjz" firstAttribute="leading" secondItem="L53-hj-3yh" secondAttribute="leadingMargin" id="cPC-Al-AK5"/>
+                            <constraint firstItem="l6a-Vm-oQD" firstAttribute="trailing" secondItem="L53-hj-3yh" secondAttribute="trailingMargin" id="i5q-Ft-7O9"/>
+                            <constraint firstItem="Hca-2b-gjz" firstAttribute="top" secondItem="l6a-Vm-oQD" secondAttribute="bottom" constant="28" id="kPy-KN-E2g"/>
+                            <constraint firstItem="l6a-Vm-oQD" firstAttribute="top" secondItem="ede-CF-acR" secondAttribute="bottom" constant="51" id="pPD-OZ-rC2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Event" id="28Z-rw-AG6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9w5-g8-YIB">

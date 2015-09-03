@@ -37,6 +37,7 @@
     NSTimeInterval countDownTimeInterval;
     NSTimer *startCountDownTimer;
     NSDate *pauseStart, *previousFireTime;
+    NSString *timeDisplay;
     BOOL startCountDown;
 }
 
@@ -45,6 +46,8 @@
     
     self.model = [PresetTimers sharedInstance];
     [self.model initializeTimers];
+    self.timerPresetTableView.dataSource = self;
+    self.timerPresetTableView.delegate = self;
     
     startCountDown = false;
     self.countDownLabel.hidden = true;
@@ -118,7 +121,7 @@
     int hours = (int)(afterRemainder/(60*60));
     int mins = (int)(((int)afterRemainder/60) - (hours * 60));
     int secs = (int)(((int)afterRemainder - (60 *mins) - (60 * hours * 60)));
-    NSString *timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
+    timeDisplay = [[NSString alloc] initWithFormat:@"%02u : %02u : %02u", hours, mins, secs];
     
     self.countDownLabel.text = timeDisplay;
     

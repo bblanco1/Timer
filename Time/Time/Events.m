@@ -10,7 +10,7 @@
 
 @implementation Events
 
--(void) initializeEventName: (NSString *) eventName {
+-(void) initializeEventName: (NSString *) eventName eventCountDownDisplay: (NSString *)timeDisplay {
     
     self.eventName = eventName;
 }
