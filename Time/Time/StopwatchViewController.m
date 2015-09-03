@@ -46,6 +46,13 @@
 
 @implementation StopwatchViewController
 
+- (void)awakeFromNib {
+    
+    UITabBarItem *stopwatch = [[UITabBarItem alloc]initWithTitle:@"Stopwatch" image:[UIImage imageNamed:@"stopwatchEDIT"] selectedImage:[UIImage imageNamed:@"stopwatchEDIT"]];
+    
+    [self setTabBarItem:stopwatch];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

@@ -41,6 +41,15 @@
     BOOL startCountDown;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    UITabBarItem *timer = [[UITabBarItem alloc]initWithTitle:@"Timer" image:[UIImage imageNamed:@"timerEDIT"] selectedImage:[UIImage imageNamed:@"timerEDIT"]];
+    
+    [self setTabBarItem:timer];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -66,6 +75,8 @@
     self.timerUserPicker.layer.borderWidth = 1.0;
     self.timerUserPicker.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.timerUserPicker.layer.cornerRadius = 10.0;
+    
+ 
     
 }
 

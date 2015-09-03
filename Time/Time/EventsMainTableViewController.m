@@ -20,6 +20,13 @@
 
 @implementation EventsMainTableViewController
 
+-(void)awakeFromNib {
+    
+    UITabBarItem *events = [[UITabBarItem alloc]initWithTitle:@"Events" image:[UIImage imageNamed:@"calendarEDIT"] selectedImage:[UIImage imageNamed:@"calendarEDIT"]];
+    
+    [self setTabBarItem:events];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
