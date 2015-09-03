@@ -237,14 +237,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIf-ur-Bwc">
-                                <rect key="frame" x="20" y="111" width="280" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UX0-mw-87N">
+                                <rect key="frame" x="20" y="211" width="280" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UX0-mw-87N">
-                                <rect key="frame" x="20" y="211" width="280" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIf-ur-Bwc">
+                                <rect key="frame" x="20" y="110" width="280" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -259,8 +259,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="AKg-pj-Zzi"/>
                     <connections>
-                        <outlet property="eventCoundDownDisplay" destination="UX0-mw-87N" id="oYu-fh-fFQ"/>
-                        <outlet property="eventNameLabel" destination="qIf-ur-Bwc" id="7Lm-Ki-9DO"/>
+                        <outlet property="eventNameLabel" destination="qIf-ur-Bwc" id="4tT-La-10F"/>
+                        <outlet property="eventTimeCountDown" destination="UX0-mw-87N" id="SlF-3Q-s0R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUl-V6-iC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -392,10 +392,10 @@
             </objects>
             <point key="canvasLocation" x="419" y="-646"/>
         </scene>
-        <!--Events Detail View Controller-->
+        <!--Timer Detail View Controller-->
         <scene sceneID="7sV-lE-CBE">
             <objects>
-                <viewController id="bqY-m4-S90" customClass="EventsDetailViewController" sceneMemberID="viewController">
+                <viewController id="bqY-m4-S90" customClass="TimerDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VlS-vD-Q8N"/>
                         <viewControllerLayoutGuide type="bottom" id="Nzq-DS-OWb"/>
@@ -435,13 +435,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="cbD-AZ-Qw2"/>
                     <connections>
-                        <outlet property="eventCountDownDisplay" destination="ztz-ON-rvW" id="AiB-Wu-9ui"/>
-                        <outlet property="eventNameLabel" destination="OS1-ot-9va" id="bby-cg-iJs"/>
+                        <outlet property="timerCountDownLabel" destination="ztz-ON-rvW" id="uJ3-Fu-puZ"/>
+                        <outlet property="timerNameLabel" destination="OS1-ot-9va" id="ctu-dd-SbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh2-qv-xyn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408" y="1405"/>
+            <point key="canvasLocation" x="408" y="1420"/>
         </scene>
         <!--Timer-->
         <scene sceneID="dnm-X4-E3k">

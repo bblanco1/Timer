@@ -10,8 +10,12 @@
 
 
 @interface EventsDetailViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *eventCountDownDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *eventTimeCountDown;
+
+
+
 
 
 
@@ -22,7 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.eventNameLabel.text = self.eventName;
+    self.eventTimeCountDown.text = self.eventCountDown;
 }
 
 - (void)didReceiveMemoryWarning {

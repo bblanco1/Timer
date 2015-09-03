@@ -13,6 +13,7 @@
 -(void) initializeEventName: (NSString *) eventName eventCountDownDisplay: (NSString *)timeDisplay {
     
     self.eventName = eventName;
+    self.timeDisplay = timeDisplay;
 }
 
 
