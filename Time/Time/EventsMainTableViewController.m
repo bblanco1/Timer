@@ -45,9 +45,11 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Events *event = [self.model.allEvents objectAtIndex:indexPath.row];
         NSString *eventName = event.eventName;
+        NSString *eventCountDown = event.timeDisplay;
         
         EventsDetailViewController *destination = segue.destinationViewController;
         destination.eventName = eventName;
+        destination.eventCountDown = eventCountDown;
         
     }
     

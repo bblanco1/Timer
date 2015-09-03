@@ -11,5 +11,6 @@
 @interface EventsDetailViewController : UIViewController
 
 @property (nonatomic) NSString *eventName;
+@property (nonatomic) NSString *eventCountDown;
 
 @end

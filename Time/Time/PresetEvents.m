@@ -28,7 +28,7 @@
     
     Events *c4qGraduation = [[Events alloc] init];
     
-    [c4qGraduation initializeEventName:@"C4Q Graduation" eventCountDownDisplay:@""];
+    [c4qGraduation initializeEventName:@"C4Q Graduation" eventCountDownDisplay:@"Feb 28 "];
     
     [self.allEvents addObject:c4qGraduation];
     

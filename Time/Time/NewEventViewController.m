@@ -138,8 +138,9 @@
     
     Events *event = [[Events alloc] init];
     NSString *eventName = self.eventDescription.text;
+    NSString *timeDisplay = timeDisplay;
     
-    [event initializeEventName:eventName eventCountDownDisplay:@""];
+    [event initializeEventName:eventName eventCountDownDisplay:timeDisplay];
     
     PresetEvents *shared = [PresetEvents sharedInstance];
     [shared.allEvents addObject:event];

@@ -9,6 +9,9 @@
 #import "TimerDetailViewController.h"
 
 @interface TimerDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *timerNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerCountDownLabel;
+
 
 @end
 
@@ -16,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.timerNameLabel.text = self.timerName;
 }
 
 - (void)didReceiveMemoryWarning {
