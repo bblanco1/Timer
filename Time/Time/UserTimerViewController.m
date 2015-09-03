@@ -91,9 +91,11 @@
         NSIndexPath *indexPath = [self.timerPresetTableView indexPathForSelectedRow];
         Timer *timer = [self.model.allTimers objectAtIndex:indexPath.row];
         NSString *timerName = timer.timerName;
+        NSString *timerCounDown = timer.timeDisplay;
         
         TimerDetailViewController *destination = segue.destinationViewController;
         destination.timerName = timerName;
+        destination.timerCountDown = timerCounDown;
         
     }
     

@@ -58,7 +58,7 @@
     Timer *timer = [[Timer alloc] init];
     NSString *timerName = self.timerDescription.text;
     NSString *timeDisplay = self.dateSelctionTextField.text;
-    
+    NSLog(@"%@", timeDisplay);
     [timer initializeTimerName:timerName timerCountDownDisplay:timeDisplay];
     
     PresetTimers *shared = [PresetTimers sharedInstance];

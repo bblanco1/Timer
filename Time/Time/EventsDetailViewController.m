@@ -28,6 +28,15 @@
     
     self.eventNameLabel.text = self.eventName;
     self.eventTimeCountDown.text = self.eventCountDown;
+    
+}
+
+-(void)countDownEvent {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d 'Days' hh 'Hours' mm 'Minutes'"];
+    NSDate *dateFromString = [[NSDate alloc] init];
+    dateFromString = [dateFormatter dateFromString:self.eventCountDown];
+    
 }
 
 - (void)didReceiveMemoryWarning {
