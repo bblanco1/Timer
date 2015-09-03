@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="K2T-ZY-uIU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="K2T-ZY-uIU">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -150,7 +149,7 @@
                             <outletCollection property="gestureRecognizers" destination="0Uy-0k-HEB" appends="YES" id="loE-8X-8xL"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stopwatch" selectedImage="Stopwatch-50" id="h4C-S1-viP" userLabel="Stopwatch"/>
+                    <tabBarItem key="tabBarItem" title="Stopwatch" id="h4C-S1-viP" userLabel="Stopwatch"/>
                     <connections>
                         <outlet property="lapButton" destination="net-zm-nJT" id="tJH-mD-gbe"/>
                         <outlet property="lapTableview" destination="YLM-uV-uRK" id="97j-fx-im2"/>
@@ -663,7 +662,9 @@
             <point key="canvasLocation" x="1679" y="-1347"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Stopwatch-50" width="50" height="50"/>
-    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
