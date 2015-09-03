@@ -26,29 +26,10 @@
 
 @implementation NewTimerViewController
 
-{
-    BOOL start;
-    //NSTimer time;
-    NSTimeInterval countDownTimeInterval;
-    NSTimer *startCountDownTimer;
-    NSDate *pauseStart, *previousFireTime;
-    BOOL startCountDown;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.timerDescription.layer.borderWidth = 1.0;
-    self.timerDescription.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.timerDescription.layer.cornerRadius = 10.0;
-    
-    self.dateSelctionTextField.layer.borderWidth = 1.0;
-    self.dateSelctionTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.dateSelctionTextField.layer.cornerRadius = 10.0;
-    
-    
-    
-    startCountDown = false;
     timerPicker = [[UIDatePicker alloc] init];
     timerPicker.datePickerMode = UIDatePickerModeCountDownTimer;
     [self.dateSelctionTextField setInputView:timerPicker];
@@ -77,7 +58,7 @@
     Timer *timer = [[Timer alloc] init];
     NSString *timerName = self.timerDescription.text;
     NSString *timeDisplay = self.dateSelctionTextField.text;
-    
+    NSLog(@"%@", timeDisplay);
     [timer initializeTimerName:timerName timerCountDownDisplay:timeDisplay];
     
     PresetTimers *shared = [PresetTimers sharedInstance];
