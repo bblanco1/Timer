@@ -9,6 +9,7 @@
 #import "EventsDetailViewController.h"
 
 
+
 @interface EventsDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;

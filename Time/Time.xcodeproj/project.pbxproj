@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2209C3801B950BD4009AD0DA /* hotline.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2209C37F1B950BD4009AD0DA /* hotline.mp3 */; };
+		2209C3881B97E122009AD0DA /* SwipeGestures.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209C3871B97E122009AD0DA /* SwipeGestures.m */; };
 		223B04931B88C5E6004C0371 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04921B88C5E6004C0371 /* TabBarController.m */; };
 		223B04991B88C624004C0371 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B04981B88C624004C0371 /* StopwatchViewController.m */; };
 		223B049C1B88C637004C0371 /* NewTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223B049B1B88C637004C0371 /* NewTimerViewController.m */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		2209C37F1B950BD4009AD0DA /* hotline.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hotline.mp3; path = sounds/hotline.mp3; sourceTree = "<group>"; };
+		2209C3861B97E122009AD0DA /* SwipeGestures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeGestures.h; sourceTree = "<group>"; };
+		2209C3871B97E122009AD0DA /* SwipeGestures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeGestures.m; sourceTree = "<group>"; };
 		223B04911B88C5E6004C0371 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		223B04921B88C5E6004C0371 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		223B04971B88C624004C0371 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 			children = (
 				223B04971B88C624004C0371 /* StopwatchViewController.h */,
 				223B04981B88C624004C0371 /* StopwatchViewController.m */,
+				2209C3861B97E122009AD0DA /* SwipeGestures.h */,
+				2209C3871B97E122009AD0DA /* SwipeGestures.m */,
 			);
 			name = "Stop Watch";
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				223B049C1B88C637004C0371 /* NewTimerViewController.m in Sources */,
 				8D0537611B86687C00588318 /* AppDelegate.m in Sources */,
 				5A10E51F1B961A0C0067DCF4 /* PresetTimers.m in Sources */,
+				2209C3881B97E122009AD0DA /* SwipeGestures.m in Sources */,
 				8D05375E1B86687C00588318 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -38,6 +38,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.timerDescription.layer.borderWidth = 1.0;
+    self.timerDescription.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.timerDescription.layer.cornerRadius = 10.0;
+    
+    self.dateSelctionTextField.layer.borderWidth = 1.0;
+    self.dateSelctionTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.dateSelctionTextField.layer.cornerRadius = 10.0;
+    
+    
+    
     startCountDown = false;
     timerPicker = [[UIDatePicker alloc] init];
     timerPicker.datePickerMode = UIDatePickerModeCountDownTimer;

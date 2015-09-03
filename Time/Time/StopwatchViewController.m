@@ -7,6 +7,8 @@
 //
 
 #import "StopwatchViewController.h"
+#import "SwipeGestures.h"
+
 
 @interface StopwatchViewController () <UITableViewDelegate, UITableViewDataSource,AVAudioPlayerDelegate>
 

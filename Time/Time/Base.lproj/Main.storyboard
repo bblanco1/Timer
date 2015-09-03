@@ -19,6 +19,11 @@
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
             <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -162,22 +167,22 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9e-7D-LKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="oKY-CZ-3PR">
+                <swipeGestureRecognizer direction="right" id="oKY-CZ-3PR" userLabel="Swipe Gesture RecognizerRight">
                     <connections>
                         <action selector="swipeGestureRecognizerSwiped:" destination="9dq-zV-6bM" id="gjh-2z-oXp"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="Lvr-hJ-nRw">
+                <swipeGestureRecognizer direction="left" id="Lvr-hJ-nRw" userLabel="Swipe Gesture RecognizerLeft">
                     <connections>
                         <action selector="swipeGestureRecognizerSwipedLeft:" destination="9dq-zV-6bM" id="y2N-z5-0FJ"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="3dx-kY-RwF">
+                <swipeGestureRecognizer direction="down" id="3dx-kY-RwF" userLabel="Swipe Gesture RecognizerDown">
                     <connections>
                         <action selector="swipeGestureRecognizerSwipedDown:" destination="9dq-zV-6bM" id="XLN-sJ-otY"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="up" id="0Uy-0k-HEB">
+                <swipeGestureRecognizer direction="up" id="0Uy-0k-HEB" userLabel="Swipe Gesture RecognizerUp">
                     <connections>
                         <action selector="swipeGestureRecognizerSwipedUp:" destination="9dq-zV-6bM" id="JQs-S5-e4z"/>
                     </connections>
@@ -282,12 +287,12 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Timer Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-hG-35b">
                                 <rect key="frame" x="20" y="115" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYr-PR-il4">
                                 <rect key="frame" x="20" y="173" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -507,12 +512,19 @@
                                 <rect key="frame" x="3" y="332" width="313" height="187"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="timerCell" id="ELV-tX-qAm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="timerCell" textLabel="lRZ-qA-f8A" style="IBUITableViewCellStyleDefault" id="ELV-tX-qAm">
                                         <rect key="frame" x="0.0" y="22" width="313" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ELV-tX-qAm" id="JGB-cf-WLi">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lRZ-qA-f8A">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="bqY-m4-S90" kind="push" id="x1g-4m-QIX"/>
@@ -593,12 +605,12 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Description" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l6a-Vm-oQD">
                                 <rect key="frame" x="20" y="115" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Date &amp; Time" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hca-2b-gjz">
                                 <rect key="frame" x="20" y="173" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
