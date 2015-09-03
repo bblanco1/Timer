@@ -11,5 +11,6 @@
 @interface TimerDetailViewController : UIViewController
 
 @property (nonatomic) NSString *timerName;
+@property (nonatomic) NSString *timerCountDown;
 
 @end
